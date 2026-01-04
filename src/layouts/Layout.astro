@@ -1,5 +1,19 @@
 ---
 import "../styles/global.css";
+
+interface Props {
+	title?: string;
+	description?: string;
+	image?: string;
+}
+
+const {
+	title = "Octalink | Ingeniería de Diseño & Infraestructura Digital",
+	description = "Transformamos tu negocio con infraestructura digital de alto rendimiento. Desarrollo Web Corporativo, Sistemas WaaS y Software a Medida en Concepción y Sur de Chile.",
+	image = "/og-image-octalink.jpg", // Crea esta imagen de 1200x630px
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
@@ -9,7 +23,56 @@ import "../styles/global.css";
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Octalink | Ingeniraría de Diseño</title>
+		<!--  -->
+		<title>{title}</title>
+		<meta name="title" content={title} />
+		<meta name="description" content={description} />
+		<link rel="canonical" href={canonicalURL} />
+		<meta
+			name="keywords"
+			content="Infraestructura Digital, Desarrollo Web Concepción, Software Bío Bío, Diseño Web Corporativo, WaaS, Astro, Vue.js"
+		/>
+		<meta name="author" content="Octalink SpA" />
+		<meta name="robots" content="index, follow" />
+
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={Astro.url} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={new URL(image, Astro.site)} />
+		<meta property="og:site_name" content="Octalink Ingeniería Digital" />
+		<meta property="og:locale" content="es_CL" />
+
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={Astro.url} />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content={new URL(image, Astro.site)} />
+
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "ProfessionalService",
+				"name": "Octalink",
+				"image": "https://octalink.cl/og-image-octalink.jpg",
+				"@id": "https://octalink.cl",
+				"url": "https://octalink.cl",
+				"telephone": "+56932393772",
+				"address": {
+					"@type": "PostalAddress",
+					"streetAddress": "Las Violetas 1687, Oficina 417",
+					"addressLocality": "Concepción",
+					"addressRegion": "Bío Bío",
+					"postalCode": "4030000",
+					"addressCountry": "CL"
+				},
+				"geo": {
+					"@type": "GeoCoordinates",
+					"latitude": -36.832265546235895,
+					"longitude": -73.10885958646142
+				}
+			}
+		</script>
 	</head>
 	<body>
 		<slot />
