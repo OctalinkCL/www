@@ -1,0 +1,16 @@
+---
+import octalink from "../../assets/octalink_light.svg";
+
+import { MessageCircleIcon } from "@lucide/astro";
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 p-4">
+  <div class="mx-auto w-full max-w-6xl">
+    <nav class="flex items-center bg-white rounded-full p-3 sm:p-5">
+      <img src={octalink.src} alt="Octalink Logo" class="h-6 sm:h-6" />
+      <button class="ml-auto bg-orange-600 p-3 rounded-full">
+        <MessageCircleIcon class="h-5 sm:h-6 text-white" />
+      </button>
+    </nav>
+  </div>
+</header>
