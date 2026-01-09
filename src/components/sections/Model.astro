@@ -1,0 +1,69 @@
+---
+import { TrendingUp, Receipt, CloudSync } from "@lucide/astro";
+
+const text = {
+  badge: "Modelo Flexible",
+  title: "Tecnología diseñada para adaptarse a la realidad de tu negocio.",
+  subtitle:
+    "Olvídate de desembolsar millones por una web que envejece. Implementamos el Leasing Tecnológico: infraestructura como servicio.",
+};
+
+const cards = [
+  {
+    icon: TrendingUp,
+    title: "Inversión Inicial $0",
+    description:
+      "No te descapitalices. Aplica el modelo de arriendo tecnológico. Tu dinero se queda en tu caja para comprar insumos o contratar gente, no para pagar servidores.",
+  },
+  {
+    icon: Receipt,
+    title: "Gasto Operacional",
+    description:
+      "Al ser un servicio mensual, todo está incluido en una sola cuota. Financieramente simple: conviertes múltiples costos dispersos en un pago claro y predecible.",
+  },
+  {
+    icon: CloudSync,
+    title: "Evolución Continua",
+    description:
+      "Las webs tradicionales mueren a los 2 años. Con Octalink, tu suscripción incluye actualizaciones de seguridad y tecnología. Tu infraestructura digital es eterna.",
+  },
+];
+---
+
+<section id="modelo">
+  <!-- new -->
+  <div class="wrapper grid gap-10 md:gap-14">
+    <!-- top -->
+    <div class="text-center text-white flex flex-col gap-4 max-w-2xl mx-auto">
+      <span class="badge bg-neutral-900 mx-auto">{text.badge}</span>
+      <h2 class="section-title">
+        {text.title}
+      </h2>
+      <p class="section-subtitle text-zinc-500 max-w-xl mx-auto">
+        {text.subtitle}
+      </p>
+    </div>
+
+    <!-- bottom -->
+    <div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {
+          cards.map((card) => (
+            <div class="bg-stone-950 border border-white/5 rounded-2xl p-6">
+              <div class="grid">
+                <div class="w-12 h-12 bg-black text-orange-600 rounded-xl flex items-center justify-center">
+                  <card.icon size={24} />
+                </div>
+                <div class="text-white mt-4">
+                  <h3 class="text-xl font-mediu">{card.title}</h3>
+                  <p class="text-zinc-500 mt-2 text-sm">{card.description}</p>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+  <!-- ./new -->
+</section>

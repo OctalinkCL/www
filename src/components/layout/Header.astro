@@ -1,0 +1,30 @@
+---
+import OctalinkLogo from "../../assets/octalink.svg";
+import { ArrowRight } from "@lucide/astro";
+---
+
+<div class="fixed w-full z-50 top-0 left-0 right-0">
+  <nav class="px-3 py-4 flex justify-center">
+    <div
+      class="bg-black/80 backdrop-blur-sm border border-white/20 rounded-full w-full max-w-4xl p-3"
+    >
+      <div class="flex justify-between items-center">
+        <!-- logo -->
+        <div class="logo">
+          <img src={OctalinkLogo.src} alt="Octalink" class="h-7" />
+        </div>
+        <!-- get in touch -->
+        <a
+          class="bg-white p-1 rounded-full flex items-center"
+          href="https://wa.me/56932393772?text=Hola,%20quiero%20evaluar%20mi%20infraestructura."
+          target="_blank"
+        >
+          <span class="bg-orange-600 text-white p-2 rounded-full">
+            <ArrowRight size={18} />
+          </span>
+          <span class="mx-2 text-sm font-medium">Hablemos</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+</div>
