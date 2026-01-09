@@ -1,115 +1,69 @@
-<section id="modelo" class="py-24 bg-zinc-50 border-y border-zinc-200">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="mb-16 md:text-center max-w-3xl mx-auto">
-      <h2
-        class="text-3xl md:text-5xl font-bold text-zinc-900 tracking-tight mb-6"
-      >
-        Tecnología de punta,<br /> adaptada a tu <span class="text-orange-600"
-          >flujo de caja.</span
-        >
+---
+import { TrendingUp, Receipt, CloudSync } from "@lucide/astro";
+
+const text = {
+  badge: "Modelo Flexible",
+  title: "Tecnología diseñada para adaptarse a la realidad de tu negocio.",
+  subtitle:
+    "Olvídate de desembolsar millones por una web que envejece. Implementamos el Leasing Tecnológico: infraestructura como servicio.",
+};
+
+const cards = [
+  {
+    icon: TrendingUp,
+    title: "Inversión Inicial $0",
+    description:
+      "No te descapitalices. Aplica el modelo de arriendo tecnológico. Tu dinero se queda en tu caja para comprar insumos o contratar gente, no para pagar servidores.",
+  },
+  {
+    icon: Receipt,
+    title: "Gasto Operacional",
+    description:
+      "Al ser un servicio mensual, todo está incluido en una sola cuota. Financieramente simple: conviertes múltiples costos dispersos en un pago claro y predecible.",
+  },
+  {
+    icon: CloudSync,
+    title: "Evolución Continua",
+    description:
+      "Las webs tradicionales mueren a los 2 años. Con Octalink, tu suscripción incluye actualizaciones de seguridad y tecnología. Tu infraestructura digital es eterna.",
+  },
+];
+---
+
+<section id="modelo">
+  <!-- new -->
+  <div class="wrapper grid gap-10 md:gap-14">
+    <!-- top -->
+    <div class="text-center text-white flex flex-col gap-4 max-w-2xl mx-auto">
+      <span class="badge bg-neutral-900 mx-auto">{text.badge}</span>
+      <h2 class="section-title">
+        {text.title}
       </h2>
-      <p class="text-lg text-zinc-500">
-        Olvídate de desembolsar millones por una web que envejece. Implementamos
-        el <strong>Leasing Tecnológico</strong>: infraestructura como servicio.
+      <p class="section-subtitle text-zinc-500 max-w-xl mx-auto">
+        {text.subtitle}
       </p>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-8">
-      <!-- Card 1 -->
-      <div
-        class="bg-white p-8 rounded-3xl border border-zinc-200 shadow-sm hover:shadow-xl hover:shadow-zinc-200/50 transition-all duration-300 group"
-      >
-        <div
-          class="w-12 h-12 bg-zinc-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-orange-50 group-hover:text-orange-600 transition-colors"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            ><path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg
-          >
-        </div>
-        <h3 class="text-xl font-bold text-zinc-900 mb-3">
-          Inversión Inicial $0
-        </h3>
-        <p class="text-zinc-500 text-sm leading-relaxed">
-          No te descapitalices. Aplica el modelo de arriendo tecnológico. Tu
-          dinero se queda en tu caja para comprar insumos o contratar gente, no
-          para pagar servidores.
-        </p>
-      </div>
-
-      <!-- Card 2 -->
-      <div
-        class="bg-zinc-900 p-8 rounded-3xl border border-zinc-800 shadow-2xl relative overflow-hidden group"
-      >
-        <div
-          class="absolute top-0 right-0 bg-orange-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl"
-        >
-          POPULAR
-        </div>
-        <div
-          class="w-12 h-12 bg-zinc-800 rounded-2xl flex items-center justify-center mb-6 text-orange-500"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            ><path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-            ></path></svg
-          >
-        </div>
-        <h3 class="text-xl font-bold text-white mb-3">
-          Gasto Operacional (OPEX)
-        </h3>
-        <p class="text-zinc-400 text-sm leading-relaxed">
-          Al ser un servicio mensual, el 100% de la factura es <strong
-            >deducible de impuestos</strong
-          >. Financieramente inteligente: conviertes un activo depreciable en un
-          beneficio tributario.
-        </p>
-      </div>
-
-      <!-- Card 3 -->
-      <div
-        class="bg-white p-8 rounded-3xl border border-zinc-200 shadow-sm hover:shadow-xl hover:shadow-zinc-200/50 transition-all duration-300 group"
-      >
-        <div
-          class="w-12 h-12 bg-zinc-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            ><path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-            ></path></svg
-          >
-        </div>
-        <h3 class="text-xl font-bold text-zinc-900 mb-3">Evolución Continua</h3>
-        <p class="text-zinc-500 text-sm leading-relaxed">
-          Las webs tradicionales mueren a los 2 años. Con Octalink, tu
-          suscripción incluye actualizaciones de seguridad y tecnología. Tu
-          infraestructura digital es eterna.
-        </p>
+    <!-- bottom -->
+    <div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {
+          cards.map((card) => (
+            <div class="bg-stone-950 border border-white/5 rounded-2xl p-6">
+              <div class="grid">
+                <div class="w-12 h-12 bg-black text-orange-600 rounded-xl flex items-center justify-center">
+                  <card.icon size={24} />
+                </div>
+                <div class="text-white mt-4">
+                  <h3 class="text-xl font-mediu">{card.title}</h3>
+                  <p class="text-zinc-500 mt-2 text-sm">{card.description}</p>
+                </div>
+              </div>
+            </div>
+          ))
+        }
       </div>
     </div>
   </div>
+  <!-- ./new -->
 </section>
