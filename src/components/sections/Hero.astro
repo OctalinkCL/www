@@ -2,13 +2,16 @@
   <div class="max-w-4xl mx-auto text-center px-4">
     <!-- badge -->
     <div
+      id="badge"
       class="inline-flex border border-white/15 rounded-full px-4 py-2 bg-black mb-6"
     >
       <span class="text-sm">Bienvenidos a Octalink</span>
     </div>
 
     <!-- title -->
-    <h1 class="text-4xl lg:text-6xl font-bold text-white tracking-tighter mb-8">
+    <h1
+      class="text-4xl lg:text-6xl font-bold text-white tracking-tighter mb-8 content"
+    >
       Tu propio Departamento de <br />
       <span
         class="text-transparent bg-clip-text bg-linear-to-r from-orange-600 to-amber-500"
@@ -22,7 +25,7 @@
 
     <!-- subtitle -->
     <p
-      class="text-base text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed font-light"
+      class="text-base text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed font-light content"
     >
       Las empresas grandes tienen un departamento. Tú tienes a Octalink.
       <br class="hidden md:block" />
@@ -31,7 +34,9 @@
     </p>
 
     <!-- buttons   -->
-    <div class="flex flex-col md:flex-row items-center justify-center gap-4">
+    <div
+      class="flex flex-col md:flex-row items-center justify-center gap-4 content"
+    >
       <a
         href="https://wa.me/56932393772?text=Hola,%20quiero%20evaluar%20mi%20infraestructura."
         class="w-full sm:w-auto h-12 px-8 rounded-full bg-zinc-900 hover:bg-orange-600 text-white font-medium flex items-center justify-center gap-2 transition-all duration-300 shadow-lg hover:shadow-orange-500/20 hover:-translate-y-1"
@@ -47,3 +52,26 @@
     </div>
   </div>
 </section>
+<script>
+  import { gsap } from "gsap";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    let tl = gsap.timeline();
+
+    tl.from(".content", {
+      opacity: 0,
+      y: 50,
+      duration: 0.6,
+      ease: "power2.out",
+    }).from(
+      "#badge",
+      {
+        opacity: 0,
+        y: 50,
+        duration: 0.6,
+        ease: "power2.out",
+      },
+      "-=0.2"
+    );
+  });
+</script>

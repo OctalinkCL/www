@@ -67,3 +67,39 @@ const cards = [
   </div>
   <!-- ./new -->
 </section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.addEventListener("DOMContentLoaded", () => {
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#modelo",
+        start: "top 75%",
+        markers: true,
+      },
+    });
+
+    tl.from(".section-title", {
+      opacity: 0,
+      y: 50,
+      duration: 0.6,
+      ease: "power2.out",
+    })
+      .from(".section-subtitle", {
+        opacity: 0,
+        y: 50,
+        duration: 0.6,
+        ease: "power2.out",
+      })
+      .from(".badge", {
+        opacity: 0,
+        y: 50,
+        duration: 0.6,
+        ease: "power2.out",
+      });
+  });
+</script>
