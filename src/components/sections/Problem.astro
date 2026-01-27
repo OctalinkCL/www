@@ -1,103 +1,147 @@
 ---
-import { CircleX, CircleCheck } from "@lucide/astro";
+import { X, Check, ArrowRight } from "@lucide/astro";
+
 const title = "Tener un sitio web no es el problema.";
 const description =
-  "Comprar una página web es como comprar un camión y no tener mecánico ni repuestos. Tarde o temprano, se detiene. La mayoría de las empresas en el sur tienen 'vitrinas digitales' que hoy son un lastre en lugar de una herramienta.";
+  "Comprar una página web es como comprar un camión y no tener mecánico ni repuestos. Tarde o temprano, se detiene. La mayoría de las empresas tienen 'vitrinas digitales' que hoy son un lastre en lugar de una herramienta.";
 
 const agency = [
   {
-    title: "Hacen el sitio y desaparecen.",
+    title: "Hacen el sitio y desaparecen",
     description: "Te entregan las claves y buena suerte.",
   },
   {
-    title: "Tú eres el responsable.",
+    title: "Tú eres el responsable",
     description: "Si algo falla o se cae a las 3 AM, es tu problema.",
   },
   {
-    title: "Diseño que envejece rápido.",
+    title: "Diseño que envejece rápido",
     description: "En un año, tu web se verá antigua y lenta.",
   },
   {
-    title: "Nadie contesta el teléfono.",
+    title: "Nadie contesta el teléfono",
     description: "Soporte por tickets lentos o mensajes sin leer.",
   },
 ];
 
 const octalink = [
   {
-    title: "Estamos contigo siempre.",
+    title: "Estamos contigo siempre",
     description: "Somos tu equipo de respaldo, no un proveedor de paso.",
   },
   {
-    title: "Nosotros vigilamos.",
-    description:
-      "Monitoreamos 24/7. Si algo pasa, lo resolvemos antes de que te des cuenta.",
+    title: "Nosotros vigilamos",
+    description: "Monitoreamos 24/7. Si algo pasa, lo resolvemos antes de que te des cuenta.",
   },
   {
-    title: "Evolución constante.",
-    description:
-      "Tu suscripción incluye actualizaciones para que tu web siempre se sienta moderna.",
+    title: "Evolución constante",
+    description: "Tu suscripción incluye actualizaciones para que tu web siempre se sienta moderna.",
   },
   {
-    title: "Hablamos humano.",
-    description:
-      "Un WhatsApp o una llamada y estamos ahí. Soporte local, sin vueltas.",
+    title: "Hablamos humano",
+    description: "Un WhatsApp o una llamada y estamos ahí. Soporte local, sin vueltas.",
   },
 ];
 ---
 
-<section class="bg-sand py-20 | lg:py-32">
-  <div class="wrapper grid grid-cols-1 gap-12">
+<section class="relative py-24 md:py-32 overflow-hidden">
+  <!-- Background -->
+  <div class="absolute inset-0 bg-gradient-radial-bottom"></div>
+
+  <div class="wrapper relative z-10">
     <!-- Header -->
-    <header
-      class="grid grid-cols-1 text-center gap-4 | lg:grid-cols-2 lg:gap-60 lg:text-left"
-    >
-      <h1 class="text-3xl font-medium | lg:text-5xl">{title}</h1>
-      <p class="text-sm text-gray-700 | lg:text-base">{description}</p>
-    </header>
-    <!-- Content -->
-    <div
-      class="bg-white rounded-2xl p-6 grid grid-cols-1 gap-6 | lg:grid-cols-3 lg:gap-12"
-    >
-      <div class="p-6">
-        <h4 class="text-2xl font-medium">Agencia / Freelancer</h4>
-        <ul class="mt-6 space-y-6">
-          {
-            agency.map((item) => (
-              <li class="flex gap-2">
-                <CircleX size={16} class="mt-1" />
-                <div>
-                  <h5 class="font-medium">{item.title}</h5>
-                  <p class="text-sm text-gray-600">{item.description}</p>
-                </div>
-              </li>
-            ))
-          }
-        </ul>
+    <div class="max-w-4xl mx-auto text-center mb-16 md:mb-20">
+      <span class="section-badge mb-6 inline-flex">
+        <span class="w-2 h-2 bg-orange-500 rounded-full"></span>
+        El verdadero problema
+      </span>
+      <h2 class="section-title mb-6">{title}</h2>
+      <p class="section-subtitle max-w-2xl mx-auto">{description}</p>
+    </div>
+
+    <!-- Comparison Grid -->
+    <div class="grid md:grid-cols-2 gap-6 md:gap-8">
+      <!-- Agency Card -->
+      <div class="card-dark group">
+        <div class="flex items-center gap-3 mb-8">
+          <div class="w-12 h-12 rounded-2xl bg-red-500/10 flex items-center justify-center">
+            <X size={24} class="text-red-400" />
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold text-white">Agencia / Freelancer</h3>
+            <p class="text-sm text-neutral-500">El modelo tradicional</p>
+          </div>
+        </div>
+
+        <div class="space-y-6">
+          {agency.map((item, index) => (
+            <div class="flex gap-4 group/item">
+              <div class="flex-shrink-0 w-8 h-8 rounded-full bg-red-500/10 flex items-center justify-center mt-0.5">
+                <span class="text-red-400 text-sm font-medium">{index + 1}</span>
+              </div>
+              <div>
+                <h4 class="font-medium text-white mb-1">{item.title}</h4>
+                <p class="text-sm text-neutral-500">{item.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Bottom line -->
+        <div class="mt-8 pt-6 border-t border-white/5">
+          <p class="text-sm text-neutral-500 italic">
+            "Te venden un producto que caduca y se van."
+          </p>
+        </div>
       </div>
-      <div class="bg-black text-white rounded-2xl p-6 | md:col-span-2">
-        <h4 class="text-2xl font-medium">Octalink</h4>
-        <ul class="mt-6 space-y-6">
-          {
-            octalink.map((item) => (
-              <li class="flex gap-2">
-                <CircleCheck size={16} class="mt-1" />
-                <div>
-                  <h5 class="font-medium">{item.title}</h5>
-                  <p class="text-sm text-gray-400">{item.description}</p>
+
+      <!-- Octalink Card -->
+      <div class="card-gradient group">
+        <!-- Glow effect -->
+        <div class="absolute -top-20 -right-20 w-40 h-40 bg-orange-500/20 rounded-full blur-[80px]"></div>
+        
+        <div class="relative">
+          <div class="flex items-center gap-3 mb-8">
+            <div class="w-12 h-12 rounded-2xl bg-orange-500/20 flex items-center justify-center">
+              <Check size={24} class="text-orange-400" />
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold text-white">Modelo Octalink</h3>
+              <p class="text-sm text-orange-400/80">Infraestructura como servicio</p>
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            {octalink.map((item, index) => (
+              <div class="flex gap-4 group/item">
+                <div class="flex-shrink-0 w-8 h-8 rounded-full bg-orange-500/20 flex items-center justify-center mt-0.5">
+                  <Check size={16} class="text-orange-400" />
                 </div>
-              </li>
-            ))
-          }
-        </ul>
+                <div>
+                  <h4 class="font-medium text-white mb-1">{item.title}</h4>
+                  <p class="text-sm text-neutral-400">{item.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <!-- CTA -->
+          <div class="mt-8 pt-6 border-t border-orange-500/20">
+            <a href="#modelo" class="inline-flex items-center gap-2 text-orange-400 hover:text-orange-300 transition-colors group/link">
+              <span class="text-sm font-medium">Descubre cómo funciona</span>
+              <ArrowRight size={16} class="group-hover/link:translate-x-1 transition-transform" />
+            </a>
+          </div>
+        </div>
       </div>
     </div>
-    <!-- Footer -->
-    <footer>
-      <p class="text-sm text-gray-700">
-        No gastes en un producto que caduca. Invierte en una infraestructura que
-        crece con tu facturación.
+
+    <!-- Bottom Message -->
+    <div class="mt-12 md:mt-16 text-center">
+      <p class="text-neutral-500 text-sm md:text-base max-w-2xl mx-auto">
+        No gastes en un producto que caduca. 
+        <span class="text-white">Invierte en una infraestructura que crece con tu facturación.</span>
       </p>
-    </footer>
+    </div>
   </div>
 </section>
