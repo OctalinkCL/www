@@ -2,6 +2,7 @@
 
 @theme {
   --font-sans: "Geist Variable", sans-serif;
+  --color-sand: #faf9f6;
   --tracking-tightest: -0.2rem;
 }
 
@@ -33,4 +34,9 @@
 
 .btn.white {
   @apply bg-white text-neutral-900;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }

@@ -1,0 +1,103 @@
+---
+import { CircleX, CircleCheck } from "@lucide/astro";
+const title = "Tener un sitio web no es el problema.";
+const description =
+  "Comprar una página web es como comprar un camión y no tener mecánico ni repuestos. Tarde o temprano, se detiene. La mayoría de las empresas en el sur tienen 'vitrinas digitales' que hoy son un lastre en lugar de una herramienta.";
+
+const agency = [
+  {
+    title: "Hacen el sitio y desaparecen.",
+    description: "Te entregan las claves y buena suerte.",
+  },
+  {
+    title: "Tú eres el responsable.",
+    description: "Si algo falla o se cae a las 3 AM, es tu problema.",
+  },
+  {
+    title: "Diseño que envejece rápido.",
+    description: "En un año, tu web se verá antigua y lenta.",
+  },
+  {
+    title: "Nadie contesta el teléfono.",
+    description: "Soporte por tickets lentos o mensajes sin leer.",
+  },
+];
+
+const octalink = [
+  {
+    title: "Estamos contigo siempre.",
+    description: "Somos tu equipo de respaldo, no un proveedor de paso.",
+  },
+  {
+    title: "Nosotros vigilamos.",
+    description:
+      "Monitoreamos 24/7. Si algo pasa, lo resolvemos antes de que te des cuenta.",
+  },
+  {
+    title: "Evolución constante.",
+    description:
+      "Tu suscripción incluye actualizaciones para que tu web siempre se sienta moderna.",
+  },
+  {
+    title: "Hablamos humano.",
+    description:
+      "Un WhatsApp o una llamada y estamos ahí. Soporte local, sin vueltas.",
+  },
+];
+---
+
+<section class="bg-sand py-20 | lg:py-32">
+  <div class="wrapper grid grid-cols-1 gap-12">
+    <!-- Header -->
+    <header
+      class="grid grid-cols-1 text-center gap-4 | lg:grid-cols-2 lg:gap-60 lg:text-left"
+    >
+      <h1 class="text-3xl font-medium | lg:text-5xl">{title}</h1>
+      <p class="text-sm text-gray-700 | lg:text-base">{description}</p>
+    </header>
+    <!-- Content -->
+    <div
+      class="bg-white rounded-2xl p-6 grid grid-cols-1 gap-6 | lg:grid-cols-3 lg:gap-12"
+    >
+      <div class="p-6">
+        <h4 class="text-2xl font-medium">Agencia / Freelancer</h4>
+        <ul class="mt-6 space-y-6">
+          {
+            agency.map((item) => (
+              <li class="flex gap-2">
+                <CircleX size={16} class="mt-1" />
+                <div>
+                  <h5 class="font-medium">{item.title}</h5>
+                  <p class="text-sm text-gray-600">{item.description}</p>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div class="bg-black text-white rounded-2xl p-6 | md:col-span-2">
+        <h4 class="text-2xl font-medium">Octalink</h4>
+        <ul class="mt-6 space-y-6">
+          {
+            octalink.map((item) => (
+              <li class="flex gap-2">
+                <CircleCheck size={16} class="mt-1" />
+                <div>
+                  <h5 class="font-medium">{item.title}</h5>
+                  <p class="text-sm text-gray-400">{item.description}</p>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+    <!-- Footer -->
+    <footer>
+      <p class="text-sm text-gray-700">
+        No gastes en un producto que caduca. Invierte en una infraestructura que
+        crece con tu facturación.
+      </p>
+    </footer>
+  </div>
+</section>

@@ -1,0 +1,20 @@
+---
+const {
+  toptitle,
+  title,
+  subtitle,
+  class: className = "text-center",
+} = Astro.props;
+---
+
+<header class={className}>
+  {
+    toptitle && (
+      <span class="text-xs border font-medium border-gray-200 inline-block rounded-full px-2 py-1">
+        {toptitle}
+      </span>
+    )
+  }
+  {title && <h3 class="text-4xl">{title}</h3>}
+  {subtitle && <p class="text-lg text-gray-600">{subtitle}</p>}
+</header>
