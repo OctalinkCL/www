@@ -1,9 +1,9 @@
 ---
-import { TrendingUp, Receipt, CloudSync } from "@lucide/astro";
+import { TrendingUp, Receipt, RefreshCcw, ArrowUpRight } from "@lucide/astro";
 
 const text = {
   badge: "Modelo Flexible",
-  title: "Tecnología diseñada para adaptarse a la realidad de tu negocio.",
+  title: "Tecnología diseñada para adaptarse a la realidad de tu negocio",
   subtitle:
     "Olvídate de desembolsar millones por una web que envejece. Implementamos el Leasing Tecnológico: infraestructura como servicio.",
 };
@@ -14,56 +14,119 @@ const cards = [
     title: "Inversión Inicial $0",
     description:
       "No te descapitalices. Aplica el modelo de arriendo tecnológico. Tu dinero se queda en tu caja para comprar insumos o contratar gente, no para pagar servidores.",
+    highlight: "$0",
+    highlightLabel: "Setup inicial",
   },
   {
     icon: Receipt,
     title: "Gasto Operacional",
     description:
       "Al ser un servicio mensual, todo está incluido en una sola cuota. Financieramente simple: conviertes múltiples costos dispersos en un pago claro y predecible.",
+    highlight: "100%",
+    highlightLabel: "Deducible",
   },
   {
-    icon: CloudSync,
+    icon: RefreshCcw,
     title: "Evolución Continua",
     description:
       "Las webs tradicionales mueren a los 2 años. Con Octalink, tu suscripción incluye actualizaciones de seguridad y tecnología. Tu infraestructura digital es eterna.",
+    highlight: "∞",
+    highlightLabel: "Actualizaciones",
   },
 ];
 ---
 
-<section id="modelo">
-  <!-- new -->
-  <div class="wrapper grid gap-10 md:gap-14">
-    <!-- top -->
-    <div class="text-center text-white flex flex-col gap-4 max-w-2xl mx-auto">
-      <span class="badge bg-neutral-900 mx-auto">{text.badge}</span>
-      <h2 class="section-title">
-        {text.title}
-      </h2>
-      <p class="section-subtitle text-zinc-500 max-w-xl mx-auto">
-        {text.subtitle}
-      </p>
+<section id="modelo" class="relative py-24 md:py-32 overflow-hidden">
+  <!-- Background Effects -->
+  <div class="absolute inset-0 bg-gradient-radial"></div>
+  <div class="absolute inset-0 bg-grid opacity-30"></div>
+  
+  <!-- Floating elements -->
+  <div class="absolute top-1/3 right-0 w-96 h-96 bg-orange-500/5 rounded-full blur-[120px]"></div>
+
+  <div class="wrapper relative z-10">
+    <!-- Header -->
+    <div class="max-w-3xl mx-auto text-center mb-16 md:mb-20">
+      <span class="section-badge mb-6 inline-flex">
+        <RefreshCcw size={16} />
+        {text.badge}
+      </span>
+      <h2 class="section-title mb-6">{text.title}</h2>
+      <p class="section-subtitle">{text.subtitle}</p>
     </div>
 
-    <!-- bottom -->
-    <div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {
-          cards.map((card) => (
-            <div class="bg-stone-950 border border-white/5 rounded-2xl p-6">
-              <div class="grid">
-                <div class="w-12 h-12 bg-black text-orange-600 rounded-xl flex items-center justify-center">
-                  <card.icon size={24} />
-                </div>
-                <div class="text-white mt-4">
-                  <h3 class="text-xl font-mediu">{card.title}</h3>
-                  <p class="text-zinc-500 mt-2 text-sm">{card.description}</p>
-                </div>
-              </div>
+    <!-- Cards Grid -->
+    <div class="grid md:grid-cols-3 gap-6">
+      {cards.map((card, index) => (
+        <div class="card-dark group hover:scale-[1.02] transition-all duration-500 relative">
+          <!-- Hover glow -->
+          <div class="absolute inset-0 rounded-3xl bg-gradient-to-b from-orange-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          
+          <div class="relative">
+            <!-- Icon -->
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-500/20 to-orange-600/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+              <card.icon size={24} class="text-orange-400" />
             </div>
-          ))
-        }
+
+            <!-- Highlight Stat -->
+            <div class="mb-4">
+              <span class="text-4xl md:text-5xl font-bold text-white">{card.highlight}</span>
+              <span class="text-sm text-neutral-500 ml-2">{card.highlightLabel}</span>
+            </div>
+
+            <!-- Content -->
+            <h3 class="text-xl font-semibold text-white mb-3">{card.title}</h3>
+            <p class="text-neutral-400 text-sm leading-relaxed">{card.description}</p>
+
+            <!-- Learn more link -->
+            <div class="mt-6 pt-4 border-t border-white/5">
+              <a href="#contacto" class="inline-flex items-center gap-2 text-sm text-neutral-400 hover:text-orange-400 transition-colors group/link">
+                <span>Saber más</span>
+                <ArrowUpRight size={14} class="group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Bottom Feature Highlight -->
+    <div class="mt-16 md:mt-20">
+      <div class="card-gradient p-8 md:p-12">
+        <div class="absolute inset-0 bg-gradient-to-r from-orange-500/10 via-transparent to-orange-500/5 rounded-3xl"></div>
+        
+        <div class="relative grid md:grid-cols-2 gap-8 items-center">
+          <div>
+            <h3 class="text-2xl md:text-3xl font-semibold text-white mb-4">
+              Como Netflix, pero para tu infraestructura digital
+            </h3>
+            <p class="text-neutral-400 leading-relaxed">
+              Pagas una suscripción mensual y tienes acceso completo a nuestra plataforma: 
+              hosting, seguridad, actualizaciones, soporte y mejoras continuas. 
+              Sin sorpresas, sin letras chicas.
+            </p>
+          </div>
+          
+          <div class="grid grid-cols-2 gap-4">
+            <div class="bg-black/30 rounded-2xl p-5 text-center">
+              <div class="text-3xl font-bold text-orange-400 mb-1">0</div>
+              <div class="text-xs text-neutral-500">Costos ocultos</div>
+            </div>
+            <div class="bg-black/30 rounded-2xl p-5 text-center">
+              <div class="text-3xl font-bold text-orange-400 mb-1">1</div>
+              <div class="text-xs text-neutral-500">Factura mensual</div>
+            </div>
+            <div class="bg-black/30 rounded-2xl p-5 text-center">
+              <div class="text-3xl font-bold text-orange-400 mb-1">∞</div>
+              <div class="text-xs text-neutral-500">Soporte incluido</div>
+            </div>
+            <div class="bg-black/30 rounded-2xl p-5 text-center">
+              <div class="text-3xl font-bold text-green-400 mb-1">24/7</div>
+              <div class="text-xs text-neutral-500">Monitoreo</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  <!-- ./new -->
 </section>

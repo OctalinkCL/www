@@ -2,33 +2,20 @@
 import Layout from "../layouts/Layout.astro";
 
 import Hero from "../components/sections/Hero.astro";
+import Problem from "../components/sections/Problem.astro";
 import Model from "../components/sections/Model.astro";
-import PainPoints from "../components/sections/Pains.astro";
 import Services from "../components/sections/Services.astro";
 import Contact from "../components/sections/Contact.astro";
 import FAQ from "../components/sections/Faq.astro";
 ---
 
 <Layout title="Octalink | Tu Departamento de Ingeniería Digital Externo">
-  <main id="index-view">
-    <div
-      class="bg-black grid gap-20 lg:gap-40 pt-30 lg:pt-48 pb-20 lg:pb-28"
-      style={{
-        backgroundColor: "#0a0a0a",
-        backgroundImage: `
-       radial-gradient(circle at 25% 25%, #222222 0.5px, transparent 1px),
-       radial-gradient(circle at 75% 75%, #111111 0.5px, transparent 1px)
-     `,
-        backgroundSize: "10px 10px",
-        imageRendering: "pixelated",
-      }}
-    >
-      <Hero />
-      <Model />
-    </div>
-    <PainPoints />
+  <main>
+    <Hero />
+    <Problem />
+    <Model />
     <Services />
-    <Contact />
     <FAQ />
+    <Contact />
   </main>
 </Layout>
