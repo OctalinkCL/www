@@ -1,0 +1,54 @@
+---
+const screenshotUrl =
+  "https://placehold.co/960x640/ede9e2/8a8378?text=Screenshot+RHL+Real+Estate&font=inter";
+---
+
+<section id="casos" class="bg-paper">
+  <div class="wrapper py-20 md:py-28">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <!-- Texto -->
+      <div>
+        <span class="eyebrow mb-5">Caso real</span>
+        <h2 class="section-title text-ink-950 mb-6">"La web trabaja sola"</h2>
+        <p class="text-lg text-ink-950/65 leading-relaxed mb-10 max-w-lg">
+          RHL Real Estate publicaba cada propiedad dos veces a mano. Los conectamos vía
+          API — hoy todo se publica automático y reciben un informe semanal de visitas.
+        </p>
+
+        <div class="flex gap-10">
+          <div>
+            <div class="text-4xl md:text-5xl font-bold text-accent tracking-tightest">100%</div>
+            <div class="text-sm text-ink-950/50 mt-1">Publicación automática</div>
+          </div>
+          <div>
+            <div class="text-4xl md:text-5xl font-bold text-accent tracking-tightest">Semanal</div>
+            <div class="text-sm text-ink-950/50 mt-1">Informe de visitas</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mockup navegador -->
+      <div class="rounded-2xl overflow-hidden border border-black/7 bg-paper-card shadow-sm">
+        <div class="flex items-center gap-2 px-4 py-3 border-b border-black/6">
+          <span class="w-2.5 h-2.5 rounded-full bg-black/15"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-black/15"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-black/15"></span>
+          <span class="ml-3 text-xs text-ink-950/40 font-mono">rhlrealestate.cl</span>
+        </div>
+        <img
+          src={screenshotUrl}
+          alt="Screenshot pendiente del sitio de RHL Real Estate"
+          class="w-full h-auto"
+          loading="lazy"
+          width={960}
+          height={640}
+        />
+      </div>
+    </div>
+
+    <p class="text-center text-ink-950/50 mt-16 md:mt-20 max-w-xl mx-auto">
+      Si tu empresa factura, crece y no quiere perder tiempo en tecnología — esto es
+      para ti.
+    </p>
+  </div>
+</section>

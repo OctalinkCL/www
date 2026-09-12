@@ -1,0 +1,29 @@
+---
+import { ArrowRight } from "@lucide/astro";
+---
+
+<section class="relative bg-ink-950 overflow-hidden">
+  <div
+    class="pointer-events-none absolute inset-x-0 bottom-0 h-96 opacity-30"
+    style="background: radial-gradient(ellipse 60% 60% at 50% 100%, rgba(255, 94, 35, 0.2) 0%, transparent 70%);"
+  >
+  </div>
+
+  <div class="wrapper relative z-10 py-24 md:py-32 text-center">
+    <h2 class="section-title text-white max-w-2xl mx-auto mb-5">
+      Nosotros nos encargamos de la tecnología. Tú de tu negocio.
+    </h2>
+    <p class="text-lg text-white/60 mb-10">
+      Agenda una llamada de 15 minutos — sin compromiso.
+    </p>
+    <a
+      href="https://wa.me/56932393772?text=Hola%2C%20quiero%20agendar%20una%20llamada%20de%2015%20minutos."
+      target="_blank"
+      rel="noopener"
+      class="btn-primary"
+    >
+      <span>Hablar por WhatsApp</span>
+      <ArrowRight size={18} />
+    </a>
+  </div>
+</section>

@@ -1,0 +1,63 @@
+---
+import { X, Check } from "@lucide/astro";
+
+const agency = [
+  "Cobro único de $400.000–$1.500.000",
+  "Hacen el sitio y desaparecen",
+  "Hosting, dominio y correo por separado",
+  "Soporte por ticket o sin respuesta",
+];
+
+const us = [
+  "Setup accesible + cuota mensual fija",
+  "Estamos siempre — es nuestra responsabilidad",
+  "Todo incluido en una sola cuota",
+  "WhatsApp directo, respuesta garantizada",
+];
+---
+
+<section class="bg-ink-950">
+  <div class="wrapper py-20 md:py-28">
+    <h2 class="section-title text-white text-center mb-14 md:mb-16">
+      Agencia tradicional vs. Octalink
+    </h2>
+
+    <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+      <!-- Agencia tradicional -->
+      <div class="card-dark">
+        <h3 class="text-sm font-semibold uppercase tracking-wide text-white/40 mb-6">
+          Agencia tradicional
+        </h3>
+        <ul class="space-y-4">
+          {
+            agency.map((item) => (
+              <li class="flex items-start gap-3">
+                <span class="bullet-x">
+                  <X size={13} />
+                </span>
+                <span class="text-white/60 text-sm md:text-base leading-relaxed">{item}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <!-- Octalink -->
+      <div class="card-dark border-accent/40!">
+        <h3 class="text-sm font-semibold uppercase tracking-wide text-accent mb-6">Nosotros</h3>
+        <ul class="space-y-4">
+          {
+            us.map((item) => (
+              <li class="flex items-start gap-3">
+                <span class="bullet-check">
+                  <Check size={13} />
+                </span>
+                <span class="text-white/85 text-sm md:text-base leading-relaxed">{item}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
