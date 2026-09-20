@@ -17,7 +17,7 @@
   --tracking-tightest: -0.04em;
 }
 
-* {
+*_ {
   box-sizing: border-box;
 }
 
@@ -25,7 +25,7 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
+body_ {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--color-ink-950);
@@ -131,7 +131,13 @@ details[open] summary .chevron {
 
 /* Marquee de logos */
 .logo-marquee {
-  mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
 }
 
 /* Animaciones */
@@ -149,33 +155,4 @@ details[open] summary .chevron {
 .animate-fade-in-up {
   animation: fade-in-up 0.7s ease-out forwards;
   opacity: 0;
-}
-
-/* Selección y scrollbar */
-::selection {
-  background: rgba(255, 94, 35, 0.3);
-  color: white;
-}
-
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--color-ink-950);
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.12);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-@media (max-width: 768px) {
-  .section-title {
-    @apply text-3xl;
-  }
 }

@@ -1,191 +1,46 @@
----
-import { Check, ArrowRight } from "@lucide/astro";
-
-const whatsappHref =
-  "https://wa.me/56932393772?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20de%20Octalink.";
-
-const trustSignals = [
-  "Lanzamiento en 2-3 semanas",
-  "Cuota fija sin sorpresas",
-  "Sin contrato de permanencia",
-  "Siempre respondemos",
-];
-
-// Titular partido en caracteres para la animación "wave" — el texto real
-// (para SEO y lectores de pantalla) queda en el aria-label del <h1>.
-const headlineLine1 = "Tu equipo de tecnología,";
-const headlineLine2 = "sin contratar un equipo de tecnología.";
-
-function splitChars(text: string, offset: number) {
-  return [...text].map((char, i) => ({ char, delay: offset + i }));
-}
-
-const line1Chars = splitChars(headlineLine1, 0);
-const line2Chars = splitChars(headlineLine2, line1Chars.length);
----
-
-<section class="wave-hero relative min-h-screen flex flex-col justify-center overflow-hidden bg-ink-950">
-  <!-- Fondo cinematográfico: glow de marca + viñeta + grano sutil (sin video externo) -->
-  <div class="pointer-events-none absolute inset-0">
-    <div
-      class="absolute inset-x-0 top-0 h-160 opacity-50"
-      style="background: radial-gradient(ellipse 55% 45% at 50% 0%, rgba(255, 94, 35, 0.22) 0%, transparent 70%);"
-    >
-    </div>
-    <div
-      class="absolute inset-0 opacity-40"
-      style="background: radial-gradient(ellipse 60% 50% at 85% 100%, rgba(255, 94, 35, 0.12) 0%, transparent 65%);"
-    >
-    </div>
-    <div
-      class="absolute inset-0"
-      style="background: linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, transparent 25%, transparent 75%, rgba(0,0,0,0.4) 100%);"
-    >
-    </div>
-    <div class="wave-hero-grain absolute inset-0 opacity-[0.05]"></div>
+<section
+  class="relative min-h-svh z-20 flex flex-col gap-24 pt-47 pb-8 text-white | lg:pt-148 lg:pb-32"
+>
+  <!-- video -->
+  <div class="absolute top-0 bottom-0 left-0 right-0 -z-10">
+    <!-- desktop -->
+    <video
+      class="w-full h-full object-cover hidden lg:block"
+      src="https://www.pexels.com/es-es/download/video/19457509/"
+      muted
+      autoplay
+      playsinline></video>
+    <!-- small -->
+    <video
+      class="w-full h-full object-cover lg:hidden"
+      src="https://www.pexels.com/es-es/download/video/19457509/"
+      loop
+      muted
+      autoplay
+      playsinline></video>
   </div>
-
-  <div class="wrapper relative z-10 pt-32 pb-16 md:pt-36 md:pb-20">
-    <div class="max-w-3xl mx-auto text-center">
-      <h1
-        class="wave-heading section-title mb-6"
-        aria-label={`${headlineLine1} ${headlineLine2}`}
-      >
-        <span class="wave-line block text-white" aria-hidden="true">
-          {
-            line1Chars.map(({ char, delay }) =>
-              char === " " ? (
-                <span class="inline-block w-[0.28em]">{" "}</span>
-              ) : (
-                <span class="wave-char" style={`--d:${delay}`}>
-                  <span class="wave-char-main">{char}</span>
-                  <span class="wave-char-alt">{char}</span>
-                </span>
-              )
-            )
-          }
-        </span>
-        <span class="wave-line wave-line-accent block text-accent" aria-hidden="true">
-          {
-            line2Chars.map(({ char, delay }) =>
-              char === " " ? (
-                <span class="inline-block w-[0.22em]">{" "}</span>
-              ) : (
-                <span class="wave-char" style={`--d:${delay}`}>
-                  <span class="wave-char-main">{char}</span>
-                  <span class="wave-char-alt">{char}</span>
-                </span>
-              )
-            )
-          }
-        </span>
+  <!-- middle -->
+  <div class="container px-6">
+    <header class="mb-6">
+      <span class="mb-6 block text-sm font-light">
+        El partner tecnológico para tu negocio
+      </span>
+      <h1 class="text-6xl">
+        Tu equipo de tecnología, sin contratar un equipo de tecnología.
       </h1>
-
-      <p class="section-subtitle text-white/60 max-w-xl mx-auto mb-10">
-        Web, correo, hosting y soporte — una cuota mensual fija. Nosotros respondemos
-        siempre, tú te enfocas en vender.
-      </p>
-
-      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-14">
-        <a href={whatsappHref} target="_blank" rel="noopener" class="btn-primary">
-          <span>Hablar por WhatsApp</span>
-          <ArrowRight size={18} />
-        </a>
-        <a href="#planes" class="btn-glass">
-          <span>Ver planes</span>
-        </a>
-      </div>
-
-      <div class="flex flex-wrap justify-center gap-3">
-        {
-          trustSignals.map((signal) => (
-            <span class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/4 backdrop-blur-md px-4 py-2 text-xs text-white/70">
-              <Check size={13} class="text-accent shrink-0" />
-              {signal}
-            </span>
-          ))
-        }
-      </div>
-    </div>
+    </header>
+    <ul class="flex gap-4">
+      <li>
+        <a href="#" class="text-sm bg-white px-6 text-black">Hablemos</a>
+      </li>
+      <li>
+        <a href="#">Ver Planes</a>
+      </li>
+    </ul>
+  </div>
+  <!-- bottom -->
+  <div class="container mt-auto">
+    <a href="#">contact@desses.co</a>
+    <p>Based in Rotterdam, The Netherlands.</p>
   </div>
 </section>
-
-<style>
-  @reference "../../styles/global.css";
-
-  /* Tipografía del acento (línea 2 del titular), scoped a este componente */
-  .wave-line-accent {
-    font-family: "Instrument Serif", serif;
-    font-style: italic;
-  }
-
-  .btn-glass {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/4 backdrop-blur-md px-6 py-3.5 text-sm font-semibold text-white transition-colors duration-200;
-  }
-  .btn-glass:hover {
-    @apply bg-white/8 border-white/20;
-  }
-
-  /* Grano sutil sobre el degradado, look "cinematográfico" sin video */
-  .wave-hero-grain {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    mix-blend-mode: overlay;
-  }
-
-  /* Animación de entrada, letra por letra */
-  .wave-char {
-    --d: 0;
-    position: relative;
-    display: inline-block;
-    overflow: hidden;
-    animation: wave-char-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
-    animation-delay: calc(var(--d) * 18ms + 150ms);
-  }
-
-  .wave-char-main,
-  .wave-char-alt {
-    display: inline-block;
-    transition:
-      transform 0.35s cubic-bezier(0.25, 1, 0.5, 1),
-      opacity 0.35s cubic-bezier(0.25, 1, 0.5, 1);
-    transition-delay: calc(var(--d) * 15ms);
-  }
-
-  .wave-char-alt {
-    position: absolute;
-    inset: 0;
-    transform: translate(-100%, 100%);
-    opacity: 0;
-  }
-
-  /* Efecto "wave" al pasar el mouse por el titular */
-  .wave-heading:hover .wave-char-main {
-    transform: translate(100%, -100%);
-    opacity: 0;
-  }
-  .wave-heading:hover .wave-char-alt {
-    transform: translate(0, 0);
-    opacity: 1;
-  }
-
-  @keyframes wave-char-rise {
-    from {
-      opacity: 0;
-      transform: translate(-16px, 28px);
-    }
-    to {
-      opacity: 1;
-      transform: translate(0, 0);
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .wave-char {
-      animation: none;
-    }
-    .wave-char-main,
-    .wave-char-alt {
-      transition: none;
-    }
-  }
-</style>
