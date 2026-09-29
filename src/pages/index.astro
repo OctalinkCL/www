@@ -1,7 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-import Hero from "../components/sections/Hero.astro";
 import Logos from "../components/sections/Logos.astro";
 import Problem from "../components/sections/Problem.astro";
 import HowItWorks from "../components/sections/HowItWorks.astro";
@@ -11,11 +10,15 @@ import CaseStudy from "../components/sections/CaseStudy.astro";
 import Pricing from "../components/sections/Pricing.astro";
 import Faq from "../components/sections/Faq.astro";
 import FinalCta from "../components/sections/FinalCta.astro";
+
+// v2
+import SectionHero from "../components/home/Hero.astro";
 ---
 
 <Layout>
   <main>
-    <Hero />
+    <SectionHero />
+
     <Logos />
     <Problem />
     <HowItWorks />

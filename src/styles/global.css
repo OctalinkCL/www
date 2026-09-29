@@ -15,6 +15,18 @@
   --color-accent: #ff5e23; /* acento único de marca */
 
   --tracking-tightest: -0.04em;
+
+  /* Header: baja deslizándose al quedar fijo */
+  --animate-header-pin: header-pin 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+
+  @keyframes header-pin {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
 }
 
 *_ {
