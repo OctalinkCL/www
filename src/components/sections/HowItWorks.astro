@@ -1,6 +1,9 @@
 ---
 import { Search, PenTool, Rocket, MessageCircle } from "@lucide/astro";
 
+const tag = "/ sabemos hacer las cosas";
+const text =
+  "Nuestor metodo es simple y eficiente, de diagnóstico a soporte continuo.";
 const steps = [
   {
     number: "01",
@@ -18,47 +21,37 @@ const steps = [
     number: "03",
     icon: Rocket,
     title: "Lanzamiento",
-    description: "Dominio, correo y SSL activos desde el día uno.",
+    description: "Dominio, hosting, correo, analitica de resultados.",
   },
   {
     number: "04",
     icon: MessageCircle,
     title: "Soporte continuo",
-    description: "WhatsApp directo, siempre respondemos.",
+    description: "WhatsApp, correo electrónico, siempre respondemos.",
   },
 ];
 ---
 
-<section id="como-funciona" class="bg-paper-dim">
-  <div class="wrapper py-20 md:py-28">
-    <div class="max-w-2xl mb-16 md:mb-20">
-      <span class="eyebrow mb-4">Cómo funciona</span>
-      <h2 class="section-title text-ink-950 mb-4">Somos tu departamento de tecnología externo</h2>
-      <p class="section-subtitle text-ink-950/60">
-        Un proceso simple, sin fricción — de diagnóstico a soporte continuo.
-      </p>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-6">
+<section class="py-24">
+  <div class="container mx-auto px-4 lg:max-w-330 lg:px-0">
+    <span class="font-mono text-neutral-400 text-xs uppercase">{tag}</span>
+    <h3 class="text-4xl mt-3 max-w-5xl lg:text-5xl lg:mt-10">{text}</h3>
+    <ul
+      class="mt-10 border-t border-neutral-200 pt-8 grid gap-6 lg:grid-cols-4 lg:gap-9"
+    >
       {
-        steps.map((step, index) => (
-          <div class="relative">
-            {index < steps.length - 1 && (
-              <div class="hidden md:block absolute top-6 left-[calc(50%+28px)] right-[calc(-50%+28px)] h-px bg-ink-950/10" />
-            )}
-            <div class="relative flex md:flex-col items-center md:items-start gap-4 md:gap-0">
-              <div class="w-12 h-12 rounded-full bg-ink-950 text-accent flex items-center justify-center font-semibold text-sm relative z-10 shrink-0">
-                {step.number}
-              </div>
-              <div class="md:mt-6">
-                <step.icon size={20} class="hidden md:block text-accent mb-3" />
-                <h3 class="text-lg font-semibold text-ink-950 mb-1.5">{step.title}</h3>
-                <p class="text-sm text-ink-950/60 leading-relaxed">{step.description}</p>
-              </div>
+        steps.map((step) => (
+          <li class="flex lg:flex-col gap-4">
+            <step.icon class="text-primary size-6 lg:size-9" stroke-width={1} />
+            <div>
+              <h4 class="font-mono uppercase text-sm font-medium">
+                {step.title}
+              </h4>
+              <p class="text-sm text-neutral-600">{step.description}</p>
             </div>
-          </div>
+          </li>
         ))
       }
-    </div>
+    </ul>
   </div>
 </section>

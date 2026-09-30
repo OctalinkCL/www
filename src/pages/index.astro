@@ -2,8 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 
 import Logos from "../components/sections/Logos.astro";
-import Problem from "../components/sections/Problem.astro";
-import HowItWorks from "../components/sections/HowItWorks.astro";
+
 import Benefits from "../components/sections/Benefits.astro";
 import Comparison from "../components/sections/Comparison.astro";
 import CaseStudy from "../components/sections/CaseStudy.astro";
@@ -13,20 +12,22 @@ import FinalCta from "../components/sections/FinalCta.astro";
 
 // v2
 import SectionHero from "../components/home/Hero.astro";
+import Problem from "../components/sections/Problem.astro";
+import HowItWorks from "../components/sections/HowItWorks.astro";
 ---
 
 <Layout>
   <main>
     <SectionHero />
-
-    <Logos />
     <Problem />
     <HowItWorks />
+
     <Benefits />
     <Comparison />
     <CaseStudy />
     <Pricing />
     <Faq />
     <FinalCta />
+    <Logos />
   </main>
 </Layout>
