@@ -1,46 +1,95 @@
 ---
-import OctalinkLogo from "../../assets/octalink.svg";
-
-const navLinks = [
-  { href: "#como-funciona", label: "Cómo funciona" },
-  { href: "#planes", label: "Planes" },
-  { href: "#casos", label: "Casos" },
-  { href: "#faq", label: "FAQ" },
-];
+import LogoIcon from "../LogoIcon.astro";
 ---
 
-<footer class="bg-ink-950 border-t border-white/10 py-14">
-  <div class="wrapper flex flex-col items-center text-center gap-6">
-    <a href="/" class="inline-block">
-      <img src={OctalinkLogo.src} alt="Octalink" class="h-7" />
-    </a>
-
-    <p class="text-sm text-white/50">
-      Octalink SpA · Concepción, Chile ·{" "}
-      <a href="mailto:hola@octalink.cl" class="hover:text-white transition-colors">
-        hola@octalink.cl
-      </a>{" "}
-      ·{" "}
-      <a href="/" class="hover:text-white transition-colors">
-        octalink.cl
-      </a>
-    </p>
-
-    <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-white/50">
-      {
-        navLinks.map((link, index) => (
-          <>
-            {index > 0 && <span class="text-white/20">·</span>}
-            <a href={link.href} class="hover:text-white transition-colors">
-              {link.label}
-            </a>
-          </>
-        ))
-      }
-    </nav>
-
-    <div class="h-px w-full max-w-xs bg-white/10"></div>
-
-    <p class="text-sm text-white/40">© 2026 Octalink SpA. Todos los derechos reservados.</p>
+<footer class="bg-neutral-900">
+  <div
+    class="container max-w-330 mx-auto text-neutral-500 px-5 pt-20 pb-8 lg:pt-24"
+  >
+    <!-- top -->
+    <div class="grid gap-14 lg:grid-cols-[1.2fr_2fr]">
+      <!-- left -->
+      <div class="max-w-sm">
+        <a
+          href="/"
+          aria-label="Logo"
+          class="flex items-center gap-2 text-white"
+        >
+          <LogoIcon class="size-5" />
+          <span class="text-lg">OCTALINK</span>
+        </a>
+        <p class="mt-6 text-sm text-neutral-500">
+          Applied intelligence for operators. We design, train and deploy
+          private AI systems that carry real load inside real businesses.
+        </p>
+        <div class="mt-8 font-mono text-xs uppercase text-neutral-500"></div>
+      </div>
+      <!-- right -->
+      <div class="grid gap-10 sm:grid-cols-3">
+        <ul class="text-sm flex flex-col gap-4 text-neutral-400">
+          <li class="font-mono uppercase text-xs text-neutral-500">
+            Metodo Octalink
+          </li>
+          <li>1. Diagnóstico</li>
+          <li>2. Diseño y desarrollo</li>
+          <li>3. Lanzamiento</li>
+          <li>4. Soporte continuo</li>
+        </ul>
+        <ul class="text-sm flex flex-col gap-4 text-neutral-400">
+          <li class="font-mono uppercase text-xs text-neutral-500">
+            Beneficios
+          </li>
+          <li>1. Respuesta rápida</li>
+          <li>2. Actualización continua</li>
+          <li>3. Cuota fija</li>
+          <li>4. Sin ataduras</li>
+        </ul>
+        <ul class="text-sm flex flex-col gap-4 text-neutral-400">
+          <li class="font-mono uppercase text-xs text-neutral-500">Planes</li>
+          <li>1. Presencia</li>
+          <li>2. Negocio</li>
+          <li>3. Custom</li>
+        </ul>
+      </div>
+    </div>
+    <!-- middle -->
+    <div
+      class="mt-16 border-t pt-8 border-neutral-800 text-sm text-neutral-400"
+    >
+      <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <li>
+          <h5 class="text-xs font-mono uppercase text-neutral-500">Correo</h5>
+          <a
+            href="mailto:hola@octalink.cl"
+            target="_blank"
+            class="hover:text-white">hola@octalink.cl</a
+          >
+        </li>
+        <li>
+          <h5 class="text-xs font-mono uppercase text-neutral-500">Whatsapp</h5>
+          <a
+            href="https://wa.me/56932393772"
+            target="_blank"
+            class="hover:text-white">Comenzar proyecto</a
+          >
+        </li>
+        <li>
+          <h5 class="text-xs font-mono uppercase text-neutral-500">Teléfono</h5>
+          <a href="tel:+56932393772" target="_blank" class="hover:text-white">
+            +56 (9) 3239 3772
+          </a>
+        </li>
+        <li>
+          <h5 class="text-xs font-mono uppercase text-neutral-500">
+            Headquarters
+          </h5>
+          <p>Al sur de Chile</p>
+        </li>
+      </ul>
+    </div>
+    <!-- bottom -->
+    <div class="mt-16 border-t pt-6 border-neutral-800 text-[10px] font-mono">
+      <p>© 2026 OCTALINK. Todos los derechos reservados.</p>
+    </div>
   </div>
 </footer>
