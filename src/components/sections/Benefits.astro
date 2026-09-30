@@ -1,0 +1,63 @@
+---
+import { Package, Zap, RefreshCw, Receipt, Unlock, ShieldCheck } from "@lucide/astro";
+
+const benefits = [
+  {
+    icon: Package,
+    title: "Todo incluido",
+    description: "Web, correo, hosting y SSL en una sola cuota.",
+  },
+  {
+    icon: Zap,
+    title: "Respuesta rápida",
+    description: "WhatsApp directo, respondemos siempre.",
+  },
+  {
+    icon: RefreshCw,
+    title: "Actualización continua",
+    description: "Tu web se actualiza cuando lo necesitas.",
+  },
+  {
+    icon: Receipt,
+    title: "Cuota fija",
+    description: "Sin sorpresas, sin cobros extras inesperados.",
+  },
+  {
+    icon: Unlock,
+    title: "Sin ataduras",
+    description: "Sin contrato largo. 30 días de aviso y listo.",
+  },
+];
+
+const featured = {
+  icon: ShieldCheck,
+  title: "Estamos siempre",
+  description: "A diferencia de una agencia tradicional, no desaparecemos.",
+};
+---
+
+<section class="bg-paper">
+  <div class="wrapper py-20 md:py-28">
+    <div class="max-w-2xl mb-14 md:mb-16">
+      <h2 class="section-title text-ink-950">Todo lo que necesitas. Nada de lo que no.</h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {
+        benefits.map((benefit) => (
+          <div class="card-light">
+            <benefit.icon size={22} class="text-accent mb-5" />
+            <h3 class="font-semibold text-ink-950 mb-2">{benefit.title}</h3>
+            <p class="text-sm text-ink-950/60 leading-relaxed">{benefit.description}</p>
+          </div>
+        ))
+      }
+
+      <div class="card-dark">
+        <featured.icon size={22} class="text-accent mb-5" />
+        <h3 class="font-semibold text-white mb-2">{featured.title}</h3>
+        <p class="text-sm text-white/60 leading-relaxed">{featured.description}</p>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,98 +1,73 @@
 ---
-import { HelpCircle, ChevronDown } from "@lucide/astro";
+import { ChevronDown } from "@lucide/astro";
 
 const faqs = [
   {
-    question: "¿Por qué pagar una mensualidad y no un precio único?",
-    answer: "Por la misma razón que arriendas una oficina en vez de construirla. El modelo de suscripción (WaaS) te permite tener una infraestructura de primer nivel sin descapitalizarte. Además, incluye el hosting, los correos, la seguridad y el soporte técnico. Es un gasto 100% deducible de impuestos."
+    question: "¿Ya tengo una web?",
+    answer:
+      "Perfecto — ¿quién se encarga de que esté siempre activa, actualizada y funcionando? Si tienes eso resuelto, no necesitas lo que hacemos. Si no, ahí es donde entramos nosotros.",
   },
   {
-    question: "¿Por qué contratar a Octalink y no a un freelancer?",
-    answer: "Los freelancers suelen trabajar por proyecto y luego desaparecen o demoran en contestar. Octalink es una empresa constituida (SpA). Somos tu departamento de TI externo: nuestra prioridad es la continuidad operativa de tu negocio. Si nos llamas, contestamos."
+    question: "¿Es muy caro para lo que es?",
+    answer:
+      "¿Cuánto pagas hoy por hosting, dominio y correos por separado? Si sumas eso más el tiempo que le dedicas a resolver problemas, probablemente ya estás pagando más — y sin el soporte continuo.",
   },
   {
-    question: "¿Qué pasa si quiero cancelar el servicio?",
-    answer: "Eres libre. Si decides que ya no necesitas la infraestructura, puedes cancelar tu suscripción con 30 días de aviso. Te entregaremos una copia de tu contenido y tus dominios. Nuestro objetivo es retenerte por la calidad del servicio, no por contratos forzosos."
+    question: "¿Por qué mensual y no un pago único?",
+    answer:
+      "Porque una web no es un producto, es un servicio. Como la electricidad o el internet — pagas mientras funciona. Con el pago único te venden algo que envejece y cuando algo falla, quedas solo.",
   },
   {
-    question: "¿Cuánto tiempo tardan en tener todo listo?",
-    answer: "Para el Plan Presencia (Pymes), solemos entregar en 2 a 3 semanas. Para desarrollos corporativos a medida, los plazos se definen en la propuesta técnica, pero nuestra metodología ágil nos permite ser más rápidos que las agencias tradicionales."
+    question: "¿No sé si lo necesito?",
+    answer:
+      "¿Tu competencia tiene web y correos profesionales? Si la respuesta es sí, ya estás en desventaja. Si la respuesta es no, tienes una oportunidad.",
   },
-  {
-    question: "¿Qué tecnologías utilizan?",
-    answer: "Usamos tecnologías modernas y probadas: Astro, React, Vue.js, Node.js, y servicios cloud como Vercel, Cloudflare y Google Cloud. Elegimos la stack según las necesidades de cada proyecto para garantizar rendimiento y escalabilidad."
-  }
 ];
 ---
 
-<section id="faq" class="relative py-24 md:py-32 overflow-hidden">
-  <!-- Background -->
-  <div class="absolute inset-0 bg-gradient-radial-bottom opacity-50"></div>
-
-  <div class="wrapper relative z-10">
-    <!-- Header -->
-    <div class="max-w-3xl mx-auto text-center mb-16 md:mb-20">
-      <span class="section-badge mb-6 inline-flex">
-        <HelpCircle size={16} />
-        FAQ
-      </span>
-      <h2 class="section-title mb-6">Preguntas Frecuentes</h2>
-      <p class="section-subtitle">
-        Todo lo que necesitas saber sobre nuestro modelo de trabajo.
-      </p>
+<section id="faq" class="bg-paper">
+  <div class="wrapper py-20 md:py-28">
+    <div class="max-w-2xl mb-14 md:mb-16">
+      <span class="eyebrow mb-5">Preguntas frecuentes</span>
+      <h2 class="section-title text-ink-950">Antes de escribirnos</h2>
     </div>
 
-    <!-- FAQ List -->
-    <div class="max-w-3xl mx-auto space-y-4">
-      {faqs.map((faq, index) => (
-        <details class="group card-dark !p-0 overflow-hidden" data-faq>
-          <summary class="flex items-center justify-between p-6 cursor-pointer select-none">
-            <span class="font-medium text-white pr-8">{faq.question}</span>
-            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-open:bg-orange-500/20 transition-colors">
-              <ChevronDown 
-                size={20} 
-                class="text-neutral-400 group-open:text-orange-400 group-open:rotate-180 transition-all duration-300" 
+    <div class="max-w-3xl space-y-3">
+      {
+        faqs.map((faq, index) => (
+          <details class="group card-light p-0! overflow-hidden" data-faq>
+            <summary class="flex items-center gap-5 p-6 cursor-pointer select-none list-none">
+              <span class="text-sm font-semibold text-accent shrink-0">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <span class="flex-1 text-lg md:text-xl font-medium text-ink-950">
+                {faq.question}
+              </span>
+              <ChevronDown
+                size={20}
+                class="chevron text-ink-950/40 shrink-0 transition-transform duration-300"
               />
+            </summary>
+            <div class="px-6 pb-6">
+              <div class="border-t border-black/6 pt-4 pl-9">
+                <p class="text-ink-950/65 leading-relaxed">{faq.answer}</p>
+              </div>
             </div>
-          </summary>
-          <div class="px-6 pb-6 pt-0">
-            <div class="border-t border-white/5 pt-4">
-              <p class="text-neutral-400 leading-relaxed">{faq.answer}</p>
-            </div>
-          </div>
-        </details>
-      ))}
-    </div>
-
-    <!-- Bottom CTA -->
-    <div class="max-w-3xl mx-auto mt-12 md:mt-16 text-center">
-      <div class="card-dark p-8 md:p-10">
-        <p class="text-neutral-400 mb-4">
-          ¿Tienes más preguntas? Estamos aquí para ayudarte.
-        </p>
-        <a 
-          href="https://wa.me/56932393772?text=Hola,%20tengo%20una%20consulta." 
-          target="_blank"
-          class="inline-flex items-center gap-2 text-orange-400 hover:text-orange-300 transition-colors font-medium"
-        >
-          <span>Escríbenos por WhatsApp</span>
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.75.75 0 00.917.918l4.458-1.495A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.487 0-4.807-.798-6.694-2.152l-.48-.357-3.097 1.038 1.038-3.097-.357-.48A9.965 9.965 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/>
-          </svg>
-        </a>
-      </div>
+          </details>
+        ))
+      }
     </div>
   </div>
 </section>
 
 <script>
-  // Only one FAQ open at a time
-  document.querySelectorAll('[data-faq]').forEach(faq => {
-    faq.addEventListener('toggle', (e) => {
-      if ((e.target as HTMLDetailsElement).open) {
-        document.querySelectorAll('[data-faq]').forEach(other => {
-          if (other !== e.target && (other as HTMLDetailsElement).open) {
+  // Solo una pregunta abierta a la vez
+  document.querySelectorAll("[data-faq]").forEach((faq) => {
+    faq.addEventListener("toggle", (e) => {
+      const target = e.target as HTMLDetailsElement;
+      if (target.open) {
+        document.querySelectorAll("[data-faq]").forEach((other) => {
+          if (other !== target && (other as HTMLDetailsElement).open) {
             (other as HTMLDetailsElement).open = false;
           }
         });

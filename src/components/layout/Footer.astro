@@ -1,135 +1,95 @@
 ---
-import OctalinkLogo from "../../assets/octalink.svg";
-import { ArrowUpRight } from "@lucide/astro";
-
-const links = {
-  company: [
-    { label: "Modelo WaaS", href: "#modelo" },
-    { label: "Servicios", href: "#servicios" },
-    { label: "FAQ", href: "#faq" },
-    { label: "Contacto", href: "#contacto" },
-  ],
-  social: [
-    { label: "LinkedIn", href: "https://linkedin.com/company/octalink" },
-    { label: "Instagram", href: "https://instagram.com/octalink.cl" },
-  ],
-};
+import LogoIcon from "../LogoIcon.astro";
 ---
 
-<footer class="relative pt-20 pb-8 overflow-hidden">
-  <!-- Top border gradient -->
-  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
-  
-  <!-- Background -->
-  <div class="absolute inset-0 bg-gradient-radial opacity-30"></div>
-
-  <div class="wrapper relative z-10">
-    <!-- Main Footer Content -->
-    <div class="grid md:grid-cols-12 gap-12 md:gap-8 mb-16">
-      <!-- Brand Column -->
-      <div class="md:col-span-5">
-        <a href="/" class="inline-block mb-6">
-          <img src={OctalinkLogo.src} alt="Octalink" class="h-8" />
+<footer class="bg-neutral-900">
+  <div
+    class="container max-w-330 mx-auto text-neutral-500 px-5 pt-20 pb-8 lg:pt-24"
+  >
+    <!-- top -->
+    <div class="grid gap-14 lg:grid-cols-[1.2fr_2fr]">
+      <!-- left -->
+      <div class="max-w-sm">
+        <a
+          href="/"
+          aria-label="Logo"
+          class="flex items-center gap-2 text-white"
+        >
+          <LogoIcon class="size-5" />
+          <span class="text-lg">OCTALINK</span>
         </a>
-        <p class="text-neutral-400 text-sm leading-relaxed max-w-sm mb-6">
-          Tu departamento de ingeniería digital externo. 
-          Infraestructura como servicio para empresas que quieren crecer sin complicaciones técnicas.
+        <p class="mt-6 text-sm text-neutral-500">
+          Applied intelligence for operators. We design, train and deploy
+          private AI systems that carry real load inside real businesses.
         </p>
-        <div class="flex items-center gap-4">
-          <a 
-            href="https://wa.me/56932393772" 
-            target="_blank"
-            class="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors group"
-            aria-label="WhatsApp"
-          >
-            <svg class="w-5 h-5 text-neutral-400 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-            </svg>
-          </a>
-          <a 
-            href="https://linkedin.com/company/octalink" 
-            target="_blank"
-            class="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors group"
-            aria-label="LinkedIn"
-          >
-            <svg class="w-5 h-5 text-neutral-400 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-            </svg>
-          </a>
-          <a 
-            href="mailto:hola@octalink.cl"
-            class="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors group"
-            aria-label="Email"
-          >
-            <svg class="w-5 h-5 text-neutral-400 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-            </svg>
-          </a>
-        </div>
+        <div class="mt-8 font-mono text-xs uppercase text-neutral-500"></div>
       </div>
-
-      <!-- Links Columns -->
-      <div class="md:col-span-3">
-        <h4 class="text-sm font-medium text-white mb-4">Navegación</h4>
-        <ul class="space-y-3">
-          {links.company.map((link) => (
-            <li>
-              <a 
-                href={link.href} 
-                class="text-sm text-neutral-400 hover:text-white transition-colors inline-flex items-center gap-1 group"
-              >
-                <span>{link.label}</span>
-              </a>
-            </li>
-          ))}
+      <!-- right -->
+      <div class="grid gap-10 sm:grid-cols-3">
+        <ul class="text-sm flex flex-col gap-4 text-neutral-400">
+          <li class="font-mono uppercase text-xs text-neutral-500">
+            Metodo Octalink
+          </li>
+          <li>1. Diagnóstico</li>
+          <li>2. Diseño y desarrollo</li>
+          <li>3. Lanzamiento</li>
+          <li>4. Soporte continuo</li>
         </ul>
-      </div>
-
-      <!-- Contact Column -->
-      <div class="md:col-span-4">
-        <h4 class="text-sm font-medium text-white mb-4">Contacto</h4>
-        <ul class="space-y-3">
-          <li>
-            <a 
-              href="mailto:hola@octalink.cl"
-              class="text-sm text-neutral-400 hover:text-white transition-colors"
-            >
-              hola@octalink.cl
-            </a>
+        <ul class="text-sm flex flex-col gap-4 text-neutral-400">
+          <li class="font-mono uppercase text-xs text-neutral-500">
+            Beneficios
           </li>
-          <li>
-            <a 
-              href="https://wa.me/56932393772"
-              target="_blank"
-              class="text-sm text-neutral-400 hover:text-white transition-colors"
-            >
-              +56 9 3239 3772
-            </a>
-          </li>
-          <li class="text-sm text-neutral-500">
-            Las Violetas 1687, Oficina 417
-            <br />
-            Concepción, Chile
-          </li>
+          <li>1. Respuesta rápida</li>
+          <li>2. Actualización continua</li>
+          <li>3. Cuota fija</li>
+          <li>4. Sin ataduras</li>
+        </ul>
+        <ul class="text-sm flex flex-col gap-4 text-neutral-400">
+          <li class="font-mono uppercase text-xs text-neutral-500">Planes</li>
+          <li>1. Presencia</li>
+          <li>2. Negocio</li>
+          <li>3. Custom</li>
         </ul>
       </div>
     </div>
-
-    <!-- Divider -->
-    <div class="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-8"></div>
-
-    <!-- Bottom Bar -->
-    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-      <div class="flex items-center gap-2">
-        <div class="w-5 h-5 rounded bg-gradient-to-br from-orange-500 to-orange-600"></div>
-        <span class="text-sm text-neutral-500">
-          © 2026 Octalink SpA. Todos los derechos reservados.
-        </span>
-      </div>
-
-      <div class="flex items-center gap-6 text-sm text-neutral-500">
-        <span>Ingeniería de Diseño & Infraestructura Digital</span>
-      </div>
+    <!-- middle -->
+    <div
+      class="mt-16 border-t pt-8 border-neutral-800 text-sm text-neutral-400"
+    >
+      <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <li>
+          <h5 class="text-xs font-mono uppercase text-neutral-500">Correo</h5>
+          <a
+            href="mailto:hola@octalink.cl"
+            target="_blank"
+            class="hover:text-white">hola@octalink.cl</a
+          >
+        </li>
+        <li>
+          <h5 class="text-xs font-mono uppercase text-neutral-500">Whatsapp</h5>
+          <a
+            href="https://wa.me/56932393772"
+            target="_blank"
+            class="hover:text-white">Comenzar proyecto</a
+          >
+        </li>
+        <li>
+          <h5 class="text-xs font-mono uppercase text-neutral-500">Teléfono</h5>
+          <a href="tel:+56932393772" target="_blank" class="hover:text-white">
+            +56 (9) 3239 3772
+          </a>
+        </li>
+        <li>
+          <h5 class="text-xs font-mono uppercase text-neutral-500">
+            Headquarters
+          </h5>
+          <p>Al sur de Chile</p>
+        </li>
+      </ul>
+    </div>
+    <!-- bottom -->
+    <div class="mt-16 border-t pt-6 border-neutral-800 text-[10px] font-mono">
+      <p>© 2026 OCTALINK. Todos los derechos reservados.</p>
     </div>
   </div>
 </footer>

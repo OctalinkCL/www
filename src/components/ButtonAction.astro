@@ -1,0 +1,83 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { ArrowRight } from "@lucide/astro";
+
+interface Props extends Omit<HTMLAttributes<"a">, "class"> {
+  text: string;
+  href?: string;
+  /** Icono de Lucide (el componente, no un string). Ej: icon={Phone} */
+  icon?: typeof ArrowRight;
+  /** Color del texto en reposo. Ej: "text-black" */
+  textColor?: string;
+  /** Color del icono y del texto en hover. Ej: "text-white" */
+  iconColor?: string;
+  /** Fondo del círculo (se expande al hacer hover). Ej: "bg-[#6644ff]" */
+  iconBg?: string;
+  /** Fondo del botón. Ej: "bg-neutral-200" */
+  bg?: string;
+  class?: string;
+}
+
+const {
+  text,
+  href = "#",
+  icon: Icon = ArrowRight,
+  textColor = "text-black",
+  iconColor = "text-white",
+  iconBg = "bg-[#6644ff]",
+  bg = "bg-neutral-200",
+  class: className,
+  ...rest
+} = Astro.props;
+---
+
+<a
+  href={href}
+  class:list={[
+    "group relative inline-flex items-center overflow-hidden rounded-full p-1",
+    bg,
+    className,
+  ]}
+  {...rest}
+>
+  <!-- círculo que se expande en hover -->
+  <span
+    aria-hidden="true"
+    class:list={[
+      "absolute inset-y-1.5 left-1.5 w-11 rounded-full transition-[width] duration-500 ease-out group-hover:w-[calc(100%-0.75rem)]",
+      iconBg,
+    ]}
+  >
+  </span>
+
+  <!-- icono -->
+  <span
+    class:list={[
+      "relative grid size-11 shrink-0 place-items-center",
+      iconColor,
+    ]}
+  >
+    <Icon size={20} />
+  </span>
+
+  <!-- texto: roll vertical, sube el original y entra el duplicado en color del icono -->
+  <span class="relative grid overflow-hidden pr-8 pl-5 text-lg font-medium">
+    <span
+      class:list={[
+        "col-start-1 row-start-1 transition-transform duration-500 ease-out group-hover:-translate-y-full",
+        textColor,
+      ]}
+    >
+      {text}
+    </span>
+    <span
+      aria-hidden="true"
+      class:list={[
+        "col-start-1 row-start-1 translate-y-full transition-transform duration-500 ease-out group-hover:translate-y-0",
+        iconColor,
+      ]}
+    >
+      {text}
+    </span>
+  </span>
+</a>
