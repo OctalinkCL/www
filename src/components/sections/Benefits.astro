@@ -1,6 +1,23 @@
 ---
-import { Package, Zap, RefreshCw, Receipt, Unlock, ShieldCheck } from "@lucide/astro";
+import {
+  Package,
+  Zap,
+  RefreshCw,
+  Receipt,
+  LockOpen,
+  ShieldCheck,
+} from "@lucide/astro";
 
+const tag = "nuestra promesa";
+const title = "Todo lo que necesitas.";
+const subtitle =
+  "Nada de lo que no. Una sola cuota, un solo equipo y alguien que siempre responde.";
+const figure = {
+  src: "/assets/cover_mobile_o.webp",
+  alt: "Equipo Octalink",
+  name: "Equipo Octalink",
+  role: "Tu infraestructura digital",
+};
 const benefits = [
   {
     icon: Package,
@@ -23,41 +40,62 @@ const benefits = [
     description: "Sin sorpresas, sin cobros extras inesperados.",
   },
   {
-    icon: Unlock,
+    icon: LockOpen,
     title: "Sin ataduras",
     description: "Sin contrato largo. 30 días de aviso y listo.",
   },
+  {
+    icon: ShieldCheck,
+    title: "Estamos siempre",
+    description: "A diferencia de una agencia tradicional, no desaparecemos.",
+  },
 ];
-
-const featured = {
-  icon: ShieldCheck,
-  title: "Estamos siempre",
-  description: "A diferencia de una agencia tradicional, no desaparecemos.",
-};
 ---
 
-<section class="bg-paper">
-  <div class="wrapper py-20 md:py-28">
-    <div class="max-w-2xl mb-14 md:mb-16">
-      <h2 class="section-title text-ink-950">Todo lo que necesitas. Nada de lo que no.</h2>
-    </div>
+<section class="bg-neutral-900 text-white">
+  <div
+    class="container grid gap-12 mx-auto px-4 py-24 lg:max-w-330 lg:px-0 lg:grid-cols-3 lg:gap-16"
+  >
+    <!-- figure -->
+    <figure class="max-w-sm lg:max-w-none">
+      <img
+        src={figure.src}
+        alt={figure.alt}
+        class="w-full aspect-4/5 object-cover rounded-3xl"
+        loading="lazy"
+      />
+      <figcaption class="mt-6 flex flex-col gap-1">
+        <span class="text-lg">{figure.name}</span>
+        <span class="font-mono text-neutral-400 text-xs uppercase">
+          // {figure.role}
+        </span>
+      </figcaption>
+    </figure>
 
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {
-        benefits.map((benefit) => (
-          <div class="card-light">
-            <benefit.icon size={22} class="text-accent mb-5" />
-            <h3 class="font-semibold text-ink-950 mb-2">{benefit.title}</h3>
-            <p class="text-sm text-ink-950/60 leading-relaxed">{benefit.description}</p>
-          </div>
-        ))
-      }
-
-      <div class="card-dark">
-        <featured.icon size={22} class="text-accent mb-5" />
-        <h3 class="font-semibold text-white mb-2">{featured.title}</h3>
-        <p class="text-sm text-white/60 leading-relaxed">{featured.description}</p>
+    <!-- content -->
+    <div class="lg:col-span-2 flex flex-col gap-12 lg:gap-16">
+      <div>
+        <span class="font-mono text-neutral-400 text-xs uppercase">
+          <span class="text-primary">//</span>
+          {tag}
+        </span>
+        <h3 class="text-4xl font-medium mt-3 lg:text-5xl lg:mt-10">
+          {title}
+          <span class="text-neutral-500">{subtitle}</span>
+        </h3>
       </div>
+
+      <ul class="grid gap-y-10 sm:grid-cols-2 lg:grid-cols-3 lg:mt-auto">
+        {
+          benefits.map((benefit) => (
+            <li class="border-l border-white/10 px-6 flex flex-col">
+              <benefit.icon class="text-primary size-6" stroke-width={1} />
+              <h4 class="text-lg mt-8 mb-2">{benefit.title}</h4>
+              <p class="text-sm text-neutral-400">{benefit.description}</p>
+            </li>
+          ))
+        }
+      </ul>
     </div>
   </div>
 </section>
