@@ -1,5 +1,4 @@
 ---
-// import { MessageCircle } from "@lucide/astro";
 import LogoIcon from "../LogoIcon.astro";
 
 const items = [
@@ -24,7 +23,7 @@ const cta = {
 >
   <!-- header | group-[.hs]:py-3.5 -->
   <div
-    class="container max-w-330 mx-auto px-5 py-6 transition-all duration-500 ease-in-out | lg:px-0 lg:py-12 lg:group-[.hs]:py-9 flex items-center justify-between"
+    class="container max-w-330 mx-auto px-5 py-6 transition-all duration-500 ease-in-out | lg:px-8 min-[1400px]:px-0 lg:py-12 lg:group-[.hs]:py-9 flex items-center justify-between"
   >
     <!-- logo | group-[.hs]:text-neutral-800 -->
     <a href="/" class="flex items-center gap-2 text-white w-45">
@@ -40,14 +39,13 @@ const cta = {
 
     <!-- navigation -->
     <nav
-      class="hidden text-neutral-500 font-mono text-xs uppercase gap-10 lg:flex"
+      class="hidden text-neutral-400 font-mono text-xs uppercase gap-10 lg:flex"
     >
       {
         items.map((item) => (
           <a
             href={item.href}
             class="px-2.5 py-1.5 hover:bg-white/10 hover:text-white rounded-sm transition-colors"
-            aria-label={item.label}
           >
             {item.label}
           </a>
@@ -60,7 +58,6 @@ const cta = {
       <a
         href={cta.href}
         class="lg:w-45 btn btn-primary"
-        aria-label={cta.text}
         target="_blank"
         rel="noopener"
       >
@@ -72,7 +69,12 @@ const cta = {
 
 <script>
   const header = document.getElementById("site-header");
-  const onScroll = () => header?.classList.toggle("hs", window.scrollY > 450);
+  const hero = document.getElementById("section-hero");
+  // en pantallas bajas el hero termina antes de los 450px
+  const limit = () =>
+    Math.min(450, (hero?.offsetHeight ?? 450) - (header?.offsetHeight ?? 0));
+  const onScroll = () =>
+    header?.classList.toggle("hs", window.scrollY > limit());
 
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });

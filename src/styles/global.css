@@ -22,9 +22,9 @@ body {
 }
 
 .btn-primary {
-  @apply bg-primary text-white hover:bg-white hover:text-black;
+  @apply bg-primary text-neutral-950 hover:bg-white hover:text-black;
 }
 
 .btn-white {
-  @apply bg-white text-black hover:bg-primary hover:text-white;
+  @apply bg-white text-black hover:bg-primary hover:text-neutral-950;
 }

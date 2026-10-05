@@ -1,89 +1,101 @@
 ---
 import LogoIcon from "../LogoIcon.astro";
+
+const whatsapp =
+  "https://wa.me/56932393772?text=" +
+  encodeURIComponent("Hola, quiero iniciar un proyecto con Octalink.");
+const lists = [
+  {
+    title: "Método Octalink",
+    href: "#como-funciona",
+    items: [
+      "Diagnóstico",
+      "Diseño y desarrollo",
+      "Lanzamiento",
+      "Soporte continuo",
+    ],
+  },
+  {
+    title: "Beneficios",
+    href: "#beneficios",
+    items: ["Soporte 24/7", "Actualización continua", "Cuota fija", "Sin ataduras"],
+  },
+  {
+    title: "Planes",
+    href: "#planes",
+    items: ["Presencia", "Negocio", "A medida"],
+  },
+];
 ---
 
 <footer class="bg-neutral-900">
   <div
-    class="container max-w-330 mx-auto text-neutral-500 px-5 pt-20 pb-8 lg:pt-24"
+    class="container max-w-330 mx-auto text-neutral-400 px-5 pt-20 pb-8 lg:px-8 min-[1400px]:px-0 lg:pt-24"
   >
     <!-- top -->
     <div class="grid gap-14 lg:grid-cols-[1.2fr_2fr]">
       <!-- left -->
       <div class="max-w-sm">
-        <a
-          href="/"
-          aria-label="Logo"
-          class="flex items-center gap-2 text-white"
-        >
+        <a href="/" class="flex items-center gap-2 text-white">
           <LogoIcon class="size-5" />
           <span class="text-lg">OCTALINK</span>
         </a>
-        <p class="mt-6 text-sm text-neutral-500">
-          Tu infraestructura digital, a cargo de un solo equipo. Diseñamos,
-          lanzamos y mantenemos tu web, hosting, dominio y correo por una cuota
+        <p class="mt-6 text-sm">
+          Tu sitio web, hosting, dominio y correo, a cargo de un solo equipo.
+          Diseñamos, lanzamos y mantenemos la web de tu pyme por una cuota
           mensual fija.
         </p>
-        <div class="mt-8 font-mono text-xs uppercase text-neutral-500"></div>
       </div>
       <!-- right -->
       <div class="grid gap-10 sm:grid-cols-3">
-        <ul class="text-sm flex flex-col gap-4 text-neutral-400">
-          <li class="font-mono uppercase text-xs text-neutral-500">
-            Metodo Octalink
-          </li>
-          <li>1. Diagnóstico</li>
-          <li>2. Diseño y desarrollo</li>
-          <li>3. Lanzamiento</li>
-          <li>4. Soporte continuo</li>
-        </ul>
-        <ul class="text-sm flex flex-col gap-4 text-neutral-400">
-          <li class="font-mono uppercase text-xs text-neutral-500">
-            Beneficios
-          </li>
-          <li>1. Respuesta rápida</li>
-          <li>2. Actualización continua</li>
-          <li>3. Cuota fija</li>
-          <li>4. Sin ataduras</li>
-        </ul>
-        <ul class="text-sm flex flex-col gap-4 text-neutral-400">
-          <li class="font-mono uppercase text-xs text-neutral-500">Planes</li>
-          <li>1. Presencia</li>
-          <li>2. Negocio</li>
-          <li>3. Custom</li>
-        </ul>
+        {
+          lists.map((list) => (
+            <ul class="text-sm flex flex-col gap-4 text-neutral-300">
+              <li class="font-mono uppercase text-xs text-neutral-400">
+                {list.title}
+              </li>
+              {list.items.map((item, index) => (
+                <li>
+                  <a href={list.href} class="hover:text-white">
+                    {index + 1}. {item}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          ))
+        }
       </div>
     </div>
     <!-- middle -->
     <div
-      class="mt-16 border-t pt-8 border-neutral-800 text-sm text-neutral-400"
+      class="mt-16 border-t pt-8 border-neutral-800 text-sm text-neutral-300"
     >
       <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         <li>
-          <h5 class="text-xs font-mono uppercase text-neutral-500">Correo</h5>
-          <a
-            href="mailto:hola@octalink.cl"
-            target="_blank"
-            class="hover:text-white">hola@octalink.cl</a
-          >
-        </li>
-        <li>
-          <h5 class="text-xs font-mono uppercase text-neutral-500">Whatsapp</h5>
-          <a
-            href="https://wa.me/56932393772"
-            target="_blank"
-            class="hover:text-white">Comenzar proyecto</a
-          >
-        </li>
-        <li>
-          <h5 class="text-xs font-mono uppercase text-neutral-500">Teléfono</h5>
-          <a href="tel:+56932393772" target="_blank" class="hover:text-white">
-            +56 (9) 3239 3772
+          <p class="text-xs font-mono uppercase text-neutral-400">Correo</p>
+          <a href="mailto:hola@octalink.cl" class="hover:text-white">
+            hola@octalink.cl
           </a>
         </li>
         <li>
-          <h5 class="text-xs font-mono uppercase text-neutral-500">
-            Headquarters
-          </h5>
+          <p class="text-xs font-mono uppercase text-neutral-400">WhatsApp</p>
+          <a
+            href={whatsapp}
+            target="_blank"
+            rel="noopener"
+            class="hover:text-white"
+          >
+            Iniciar proyecto
+          </a>
+        </li>
+        <li>
+          <p class="text-xs font-mono uppercase text-neutral-400">Teléfono</p>
+          <a href="tel:+56932393772" class="hover:text-white">
+            +56 9 3239 3772
+          </a>
+        </li>
+        <li>
+          <p class="text-xs font-mono uppercase text-neutral-400">Ubicación</p>
           <p>Al sur de Chile</p>
         </li>
       </ul>

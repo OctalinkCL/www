@@ -22,12 +22,12 @@ const benefits = [
   {
     icon: Package,
     title: "Todo incluido",
-    description: "Web, correo, hosting y SSL en una sola cuota.",
+    description: "Web, hosting, dominio, correo y soporte en una sola cuota.",
   },
   {
     icon: Zap,
-    title: "Respuesta rápida",
-    description: "WhatsApp directo, respondemos siempre.",
+    title: "Soporte 24/7",
+    description: "WhatsApp directo, todos los días y a toda hora.",
   },
   {
     icon: RefreshCw,
@@ -37,7 +37,7 @@ const benefits = [
   {
     icon: Receipt,
     title: "Cuota fija",
-    description: "Sin sorpresas, sin cobros extras inesperados.",
+    description: "Sin sorpresas, sin cobros extra inesperados.",
   },
   {
     icon: LockOpen,
@@ -52,9 +52,9 @@ const benefits = [
 ];
 ---
 
-<section class="bg-neutral-900 text-white">
+<section id="beneficios" class="bg-neutral-900 text-white lg:scroll-mt-12">
   <div
-    class="container grid gap-12 mx-auto px-4 py-24 lg:max-w-330 lg:px-0 lg:grid-cols-3 lg:gap-16"
+    class="container grid gap-12 mx-auto px-5 py-24 lg:max-w-330 lg:px-8 min-[1400px]:px-0 lg:grid-cols-3 lg:gap-16"
   >
     <!-- figure -->
     <figure class="hidden lg:block">
@@ -63,6 +63,8 @@ const benefits = [
         alt={figure.alt}
         class="w-full aspect-4/5 object-cover rounded-3xl"
         loading="lazy"
+        width={1080}
+        height={1920}
       />
       <figcaption class="mt-6 flex flex-col gap-1">
         <span class="text-lg">{figure.name}</span>
@@ -76,13 +78,12 @@ const benefits = [
     <div class="lg:col-span-2 flex flex-col gap-12 lg:gap-16">
       <div>
         <span class="font-mono text-neutral-400 text-xs uppercase">
-          <span class="text-primary">/</span>
-          {tag}
+          / {tag}
         </span>
-        <h3 class="text-4xl font-medium mt-3 lg:text-5xl lg:mt-10">
+        <h2 class="text-4xl font-medium mt-3 lg:text-5xl lg:mt-10">
           {title}
           <span class="text-neutral-500">{subtitle}</span>
-        </h3>
+        </h2>
       </div>
 
       <ul class="grid gap-y-10 sm:grid-cols-2 lg:grid-cols-3 lg:mt-auto">
@@ -90,7 +91,7 @@ const benefits = [
           benefits.map((benefit) => (
             <li class="border-l border-white/10 px-6 flex flex-col">
               <benefit.icon class="text-primary size-6" stroke-width={1} />
-              <h4 class="text-lg mt-8 mb-2">{benefit.title}</h4>
+              <h3 class="text-lg mt-8 mb-2">{benefit.title}</h3>
               <p class="text-sm text-neutral-400">{benefit.description}</p>
             </li>
           ))

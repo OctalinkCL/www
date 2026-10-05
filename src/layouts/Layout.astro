@@ -16,71 +16,66 @@ interface Props {
 }
 
 const {
-  title = "Octalink | Tu equipo de tecnología externo",
-  description = "Web, correo, hosting y soporte — una cuota mensual fija. Nosotros respondemos siempre, tú te enfocas en vender.",
-  image = "/og-image-octalink.jpg", // Crea esta imagen de 1200x630px
+  title = "Página web para pymes con hosting y correo | Octalink",
+  description = "Sitio web, hosting, dominio .cl, correo corporativo y soporte 24/7 para tu pyme en Chile, por una cuota mensual fija y sin contrato de permanencia.",
+  image = "/og-image-octalink.jpg",
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const imageURL = new URL(image, Astro.site);
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://octalink.cl/#organization",
+  name: "Octalink",
+  url: "https://octalink.cl/",
+  logo: "https://octalink.cl/apple-touch-icon.png",
+  image: imageURL,
+  description,
+  telephone: "+56932393772",
+  email: "hola@octalink.cl",
+  areaServed: { "@type": "Country", name: "Chile" },
+};
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es-CL">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="theme-color" content="#0a0a0a" />
     <meta name="generator" content={Astro.generator} />
     <!--  -->
     <title>{title}</title>
-    <meta name="title" content={title} />
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
-    <meta
-      name="keywords"
-      content="Diseño y desarrollo web Concepción, hosting y dominio, correo corporativo, mantenimiento web mensual, soporte web pymes, Bío Bío"
-    />
-    <meta name="author" content="Octalink SpA" />
+    <meta name="author" content="Octalink" />
     <meta name="robots" content="index, follow" />
 
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={Astro.url} />
+    <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={new URL(image, Astro.site)} />
+    <meta property="og:image" content={imageURL} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Octalink: web, hosting, dominio y correo para tu pyme por una cuota mensual fija"
+    />
     <meta property="og:site_name" content="Octalink" />
     <meta property="og:locale" content="es_CL" />
 
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={Astro.url} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={new URL(image, Astro.site)} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageURL} />
 
-    <script type="application/ld+json" is:inline>
-      {
-        "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        "name": "Octalink",
-        "image": "https://octalink.cl/og-image-octalink.jpg",
-        "@id": "https://octalink.cl",
-        "url": "https://octalink.cl",
-        "telephone": "+56932393772",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Las Violetas 1687, Oficina 417",
-          "addressLocality": "Concepción",
-          "addressRegion": "Bío Bío",
-          "postalCode": "4030000",
-          "addressCountry": "CL"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": -36.832265546235895,
-          "longitude": -73.10885958646142
-        }
-      }
-    </script>
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
   </head>
   <body class="body">
     <div class="page-wrapper">

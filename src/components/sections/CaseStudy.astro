@@ -1,14 +1,14 @@
 ---
 import { ArrowLeft, ArrowRight } from "@lucide/astro";
 
-const tag = "/ casos reales";
-const title = "No lo decimos nosotros.";
-const subtitle = "Lo dicen las empresas que ya dejaron de preocuparse por su web.";
+const tag = "/ proyectos";
+const title = "Empresas que ya dejaron de preocuparse por su web.";
+const subtitle = "Esto es lo que hicimos con ellas.";
 const cases = [
   {
     client: "RHL Real Estate",
     industry: "Corretaje de propiedades",
-    quote: "La web trabaja sola.",
+    headline: "La web trabaja sola.",
     description:
       "RHL Real Estate publicaba cada propiedad dos veces a mano. Automatizamos el proceso y hoy todo se publica solo. Además, reciben un informe mensual de visitas.",
     metrics: [
@@ -24,7 +24,7 @@ const cases = [
   {
     client: "Lomo Alemán",
     industry: "Restaurante",
-    quote: "Ahora sí se usa la web.",
+    headline: "Ahora sí se usa la web.",
     description:
       "Lomo Alemán tenía web, pero no le sacaba provecho. Automatizamos su carta para que esté siempre al día y hoy los clientes la consultan ahí. Las visitas aumentaron más de un 30%.",
     metrics: [
@@ -41,36 +41,37 @@ const cases = [
 const total = String(cases.length).padStart(2, "0");
 ---
 
-<section id="casos" class="bg-white">
-  <div class="container mx-auto px-4 py-24 lg:max-w-330 lg:px-0" data-cases>
+<section id="casos" class="bg-white lg:scroll-mt-12">
+  <div class="container mx-auto px-5 py-24 lg:max-w-330 lg:px-8 min-[1400px]:px-0" data-cases>
     <!-- header -->
     <div class="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
       <div>
-        <span class="font-mono text-neutral-400 text-xs uppercase">{tag}</span>
-        <h3 class="text-4xl mt-3 max-w-5xl lg:text-5xl lg:mt-10">
+        <span class="font-mono text-neutral-500 text-xs uppercase">{tag}</span>
+        <h2 class="text-4xl mt-3 max-w-5xl lg:text-5xl lg:mt-10">
           {title}
-          <span class="text-neutral-400">{subtitle}</span>
-        </h3>
+          <span class="text-neutral-500">{subtitle}</span>
+        </h2>
       </div>
 
       <!-- controls -->
       <div class="flex items-center gap-4 shrink-0">
-        <span class="font-mono text-xs text-neutral-400">
+        <span class="font-mono text-xs text-neutral-500" aria-live="polite">
           <span class="text-neutral-900" data-cases-current>01</span> / {total}
         </span>
         <button
           type="button"
-          class="size-11 flex items-center justify-center rounded-full border border-neutral-200 cursor-pointer transition-colors duration-300 hover:border-primary hover:text-primary disabled:opacity-30 disabled:pointer-events-none"
+          class="size-11 flex items-center justify-center rounded-full border border-neutral-200 cursor-pointer transition-colors duration-300 hover:border-primary hover:text-primary aria-disabled:opacity-30 aria-disabled:pointer-events-none"
           aria-label="Caso anterior"
+          aria-disabled="true"
           data-cases-prev
-          disabled
         >
           <ArrowLeft class="size-5" stroke-width={1} />
         </button>
         <button
           type="button"
-          class="size-11 flex items-center justify-center rounded-full border border-neutral-200 cursor-pointer transition-colors duration-300 hover:border-primary hover:text-primary disabled:opacity-30 disabled:pointer-events-none"
+          class="size-11 flex items-center justify-center rounded-full border border-neutral-200 cursor-pointer transition-colors duration-300 hover:border-primary hover:text-primary aria-disabled:opacity-30 aria-disabled:pointer-events-none"
           aria-label="Caso siguiente"
+          aria-disabled="false"
           data-cases-next
         >
           <ArrowRight class="size-5" stroke-width={1} />
@@ -81,6 +82,7 @@ const total = String(cases.length).padStart(2, "0");
     <!-- slides -->
     <ul
       class="mt-10 border-t border-neutral-200 flex overflow-x-auto snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:mt-16"
+      aria-label="Proyectos"
       data-cases-track
     >
       {
@@ -89,23 +91,21 @@ const total = String(cases.length).padStart(2, "0");
             <!-- text -->
             <div class="flex flex-col lg:col-span-5">
               <div class="flex gap-4 font-mono text-xs uppercase">
-                <span class="text-neutral-400">0{index + 1}</span>
-                <span class="font-medium">{item.client}</span>
-                <span class="text-neutral-400">/ {item.industry}</span>
+                <span class="text-neutral-500">0{index + 1}</span>
+                <h3 class="font-medium">{item.client}</h3>
+                <span class="text-neutral-500">/ {item.industry}</span>
               </div>
-              <blockquote class="text-3xl mt-8 lg:text-4xl">
-                <span class="text-primary">“</span>{item.quote}<span class="text-primary">”</span>
-              </blockquote>
+              <p class="text-3xl mt-8 lg:text-4xl">{item.headline}</p>
               <p class="text-neutral-600 mt-4 max-w-lg">{item.description}</p>
 
               <dl class="mt-10 grid grid-cols-2">
                 {
                   item.metrics.map((metric) => (
-                    <div class="border-l border-neutral-200 px-6 flex flex-col-reverse gap-2">
-                      <dt class="font-mono text-xs uppercase text-neutral-400">
+                    <div class="min-w-0 border-l border-neutral-200 px-4 flex flex-col-reverse justify-end gap-2 sm:px-6">
+                      <dt class="font-mono text-xs uppercase text-neutral-500">
                         {metric.label}
                       </dt>
-                      <dd class="text-3xl text-primary lg:text-4xl">
+                      <dd class="text-2xl text-primary sm:text-3xl lg:text-4xl">
                         {metric.value}
                       </dd>
                     </div>
@@ -124,7 +124,7 @@ const total = String(cases.length).padStart(2, "0");
                   href={`https://${item.domain}`}
                   target="_blank"
                   rel="noopener"
-                  class="ml-3 font-mono text-xs text-neutral-400 transition-colors duration-300 hover:text-primary"
+                  class="ml-3 font-mono text-xs text-neutral-500 transition-colors duration-300 hover:text-neutral-900"
                 >
                   {item.domain}
                 </a>
@@ -153,21 +153,35 @@ const total = String(cases.length).padStart(2, "0");
     const next = root.querySelector("[data-cases-next]") as HTMLButtonElement;
     const current = root.querySelector("[data-cases-current]") as HTMLElement;
     const last = track.children.length - 1;
+    let target = 0;
 
     const getIndex = () => Math.round(track.scrollLeft / track.clientWidth);
-    const goTo = (index: number) =>
-      track.scrollTo({ left: index * track.clientWidth });
+    const goTo = (index: number) => {
+      target = Math.max(0, Math.min(last, index));
+      track.scrollTo({ left: target * track.clientWidth });
+    };
 
+    // aria-disabled en vez de disabled: el botón no pierde el foco del teclado
     const update = () => {
       const index = getIndex();
       current.textContent = String(index + 1).padStart(2, "0");
-      prev.disabled = index <= 0;
-      next.disabled = index >= last;
+      prev.setAttribute("aria-disabled", String(index <= 0));
+      next.setAttribute("aria-disabled", String(index >= last));
     };
 
-    prev.addEventListener("click", () => goTo(getIndex() - 1));
-    next.addEventListener("click", () => goTo(getIndex() + 1));
-    track.addEventListener("scroll", update, { passive: true });
+    prev.addEventListener("click", () => goTo(target - 1));
+    next.addEventListener("click", () => goTo(target + 1));
+    // al terminar un deslizamiento manual, sincroniza el destino
+    let timer: number;
+    track.addEventListener(
+      "scroll",
+      () => {
+        update();
+        clearTimeout(timer);
+        timer = window.setTimeout(() => (target = getIndex()), 150);
+      },
+      { passive: true },
+    );
     update();
   });
 </script>
