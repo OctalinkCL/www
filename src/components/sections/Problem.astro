@@ -23,16 +23,16 @@ const items = [
     class="container grid gap-3 mx-auto px-5 py-24 lg:max-w-330 lg:px-8 min-[1400px]:px-0 lg:grid-cols-3"
   >
     <!-- tag -->
-    <div class="font-mono text-neutral-500 text-xs">{tag}</div>
+    <div class="font-mono text-neutral-500 text-xs" data-reveal>{tag}</div>
     <!-- description -->
     <div class="lg:col-span-2 flex flex-col gap-12">
-      <h2 class="text-4xl lg:text-5xl">{title}</h2>
+      <h2 class="text-4xl lg:text-5xl" data-reveal>{title}</h2>
 
       <div class="grid gap-3 lg:grid-cols-3">
         <!-- item -->
         {
           items.map((item, index) => (
-            <div class="p-6 border border-neutral-200 bg-white rounded-xl flex flex-col min-h-44 lg:min-h-56">
+            <div class="p-6 border border-neutral-200 bg-white rounded-xl flex flex-col min-h-44 lg:min-h-56" data-reveal>
               <span class="font-mono text-xs text-neutral-500">
                 0{index + 1}
               </span>

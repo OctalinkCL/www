@@ -30,13 +30,14 @@ const actions = {
       </div>
 
       <div class="relative">
-        <span class="font-mono text-neutral-400 text-xs uppercase">{tag}</span>
-        <h2 class="text-4xl font-medium mt-6 max-w-4xl lg:text-7xl lg:mt-10">
+        <span class="font-mono text-neutral-400 text-xs uppercase" data-reveal>{tag}</span>
+        <h2 class="text-4xl font-medium mt-6 max-w-4xl lg:text-7xl lg:mt-10" data-reveal>
           {title}
           <span class="text-neutral-500">{subtitle}</span>
         </h2>
 
         <div
+          data-reveal
           class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center lg:mt-16"
         >
           <a
