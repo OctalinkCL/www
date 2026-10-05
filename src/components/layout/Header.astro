@@ -3,14 +3,19 @@
 import LogoIcon from "../LogoIcon.astro";
 
 const items = [
-  { href: "#como-funciona", label: "Como" },
-  { href: "#planes", label: "Planes" },
+  { href: "#", label: "Inicio" },
+  { href: "#como-funciona", label: "Cómo" },
   { href: "#casos", label: "Casos" },
+  { href: "#planes", label: "Planes" },
   { href: "#faq", label: "FAQ" },
 ];
 
-const ctaLink =
-  "https://wa.me/56932393772?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20de%20Octalink.";
+const cta = {
+  text: "Iniciar proyecto",
+  href:
+    "https://wa.me/56932393772?text=" +
+    encodeURIComponent("Hola, quiero iniciar un proyecto con Octalink."),
+};
 ---
 
 <header
@@ -53,12 +58,13 @@ const ctaLink =
     <!-- cta -->
     <div class="hidden lg:block">
       <a
-        href={ctaLink}
+        href={cta.href}
         class="lg:w-45 btn btn-primary"
-        aria-label="Start a project"
+        aria-label={cta.text}
         target="_blank"
+        rel="noopener"
       >
-        <span>Start a project</span>
+        <span>{cta.text}</span>
       </a>
     </div>
   </div>

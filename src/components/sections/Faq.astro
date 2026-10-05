@@ -1,6 +1,13 @@
 ---
-import { ChevronDown } from "@lucide/astro";
+import { Plus, ArrowRight } from "@lucide/astro";
 
+const tag = "/ preguntas frecuentes";
+const title = "Antes de escribirnos.";
+const subtitle = "Lo que casi todos nos preguntan.";
+const contact = {
+  text: "¿Otra duda? Escríbenos",
+  href: "https://wa.me/56932393772?text=" + encodeURIComponent("Hola, tengo una duda."),
+};
 const faqs = [
   {
     question: "¿Ya tengo una web?",
@@ -25,34 +32,48 @@ const faqs = [
 ];
 ---
 
-<section id="faq" class="bg-paper">
-  <div class="wrapper py-20 md:py-28">
-    <div class="max-w-2xl mb-14 md:mb-16">
-      <span class="eyebrow mb-5">Preguntas frecuentes</span>
-      <h2 class="section-title text-ink-950">Antes de escribirnos</h2>
+<section id="faq" class="bg-white">
+  <div
+    class="container grid gap-12 mx-auto px-4 py-24 lg:max-w-330 lg:px-0 lg:grid-cols-3 lg:gap-16"
+  >
+    <!-- header -->
+    <div class="lg:sticky lg:top-24 lg:self-start">
+      <span class="font-mono text-neutral-400 text-xs uppercase">{tag}</span>
+      <h3 class="text-4xl mt-3 lg:text-5xl lg:mt-10">
+        {title}
+        <span class="text-neutral-400">{subtitle}</span>
+      </h3>
+      <a
+        href={contact.href}
+        target="_blank"
+        rel="noopener"
+        class="mt-8 inline-flex items-center gap-3 font-mono text-sm font-medium uppercase transition-colors duration-300 hover:text-primary"
+      >
+        {contact.text}
+        <ArrowRight class="text-primary size-5" stroke-width={1} />
+      </a>
     </div>
 
-    <div class="max-w-3xl space-y-3">
+    <!-- questions -->
+    <div class="lg:col-span-2 border-b border-neutral-200">
       {
         faqs.map((faq, index) => (
-          <details class="group card-light p-0! overflow-hidden" data-faq>
-            <summary class="flex items-center gap-5 p-6 cursor-pointer select-none list-none">
-              <span class="text-sm font-semibold text-accent shrink-0">
-                {String(index + 1).padStart(2, "0")}
+          <details class="group border-t border-neutral-200" data-faq>
+            <summary class="flex items-baseline gap-4 py-8 cursor-pointer select-none list-none [&::-webkit-details-marker]:hidden lg:gap-9">
+              <span class="font-mono text-xs text-neutral-400">
+                0{index + 1}
               </span>
-              <span class="flex-1 text-lg md:text-xl font-medium text-ink-950">
+              <span class="flex-1 text-xl transition-colors duration-300 group-hover:text-primary lg:text-2xl">
                 {faq.question}
               </span>
-              <ChevronDown
-                size={20}
-                class="chevron text-ink-950/40 shrink-0 transition-transform duration-300"
+              <Plus
+                class="size-6 shrink-0 self-center transition-transform duration-300 group-open:rotate-45 group-open:text-primary"
+                stroke-width={1}
               />
             </summary>
-            <div class="px-6 pb-6">
-              <div class="border-t border-black/6 pt-4 pl-9">
-                <p class="text-ink-950/65 leading-relaxed">{faq.answer}</p>
-              </div>
-            </div>
+            <p class="pb-8 pl-8 pr-10 max-w-2xl text-neutral-600 lg:pl-13">
+              {faq.answer}
+            </p>
           </details>
         ))
       }
