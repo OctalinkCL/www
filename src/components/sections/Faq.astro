@@ -52,7 +52,7 @@ const faqs = [
     class="container grid gap-12 mx-auto px-5 py-24 lg:max-w-330 lg:px-8 min-[1400px]:px-0 lg:grid-cols-3 lg:gap-16"
   >
     <!-- header -->
-    <div class="lg:sticky lg:top-36 lg:self-start">
+    <div class="lg:sticky lg:top-36 lg:self-start" data-reveal>
       <span class="font-mono text-neutral-500 text-xs uppercase">{tag}</span>
       <h2 class="text-4xl mt-3 lg:text-5xl lg:mt-10">
         {title}
@@ -73,7 +73,7 @@ const faqs = [
     <div class="lg:col-span-2 border-b border-neutral-200">
       {
         faqs.map((faq, index) => (
-          <details class="group border-t border-neutral-200" data-faq>
+          <details class="group border-t border-neutral-200" data-faq data-reveal>
             <summary class="flex items-baseline gap-4 py-8 cursor-pointer select-none list-none [&::-webkit-details-marker]:hidden lg:gap-9">
               <span class="font-mono text-xs text-neutral-500">
                 0{index + 1}

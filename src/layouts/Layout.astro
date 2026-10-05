@@ -76,6 +76,10 @@ const schema = {
     <meta name="twitter:image" content={imageURL} />
 
     <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
+    <!-- habilita los estados iniciales de [data-reveal] solo si hay JS -->
+    <script is:inline>
+      document.documentElement.classList.add("js");
+    </script>
   </head>
   <body class="body">
     <div class="page-wrapper">
@@ -84,5 +88,24 @@ const schema = {
       <Footer />
     </div>
     <Analytics />
+    <script>
+      // Reveal: los elementos que entran juntos a pantalla se escalonan en orden
+      const observer = new IntersectionObserver(
+        (entries) => {
+          let index = 0;
+          for (const entry of entries) {
+            if (!entry.isIntersecting) continue;
+            const target = entry.target as HTMLElement;
+            target.style.setProperty("--i", String(index++));
+            target.classList.add("is-visible");
+            observer.unobserve(target);
+          }
+        },
+        { rootMargin: "0px 0px -10% 0px" },
+      );
+      document
+        .querySelectorAll("[data-reveal]")
+        .forEach((el) => observer.observe(el));
+    </script>
   </body>
 </html>

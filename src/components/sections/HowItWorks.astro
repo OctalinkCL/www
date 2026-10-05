@@ -34,14 +34,14 @@ const steps = [
 
 <section id="como-funciona" class="pb-24 scroll-mt-36 lg:pb-32">
   <div class="container mx-auto px-5 lg:max-w-330 lg:px-8 min-[1400px]:px-0">
-    <span class="font-mono text-neutral-500 text-xs uppercase">{tag}</span>
-    <h2 class="text-4xl mt-3 max-w-5xl lg:text-5xl lg:mt-10">{text}</h2>
+    <span class="font-mono text-neutral-500 text-xs uppercase" data-reveal>{tag}</span>
+    <h2 class="text-4xl mt-3 max-w-5xl lg:text-5xl lg:mt-10" data-reveal>{text}</h2>
     <ul
       class="mt-10 border-t border-neutral-200 pt-8 grid gap-6 lg:grid-cols-4 lg:gap-9"
     >
       {
         steps.map((step) => (
-          <li class="flex lg:flex-col gap-4">
+          <li class="flex lg:flex-col gap-4" data-reveal>
             <step.icon class="text-primary size-6 lg:size-9" stroke-width={1} />
             <div>
               <h3 class="font-mono uppercase text-sm font-medium">
