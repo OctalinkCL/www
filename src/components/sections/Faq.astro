@@ -1,58 +1,94 @@
 ---
-import { ChevronDown } from "@lucide/astro";
+import { Plus, ArrowRight } from "@lucide/astro";
 
+const tag = "/ preguntas frecuentes";
+const title = "Antes de escribirnos.";
+const subtitle = "Lo que casi todos nos preguntan.";
+const contact = {
+  text: "¿Otra duda? Escríbenos",
+  href: "https://wa.me/56932393772?text=" + encodeURIComponent("Hola, tengo una duda."),
+};
 const faqs = [
   {
-    question: "¿Ya tengo una web?",
+    question: "¿Qué incluye la cuota mensual?",
     answer:
-      "Perfecto — ¿quién se encarga de que esté siempre activa, actualizada y funcionando? Si tienes eso resuelto, no necesitas lo que hacemos. Si no, ahí es donde entramos nosotros.",
+      "Todo lo necesario para que tu web funcione: diseño y desarrollo del sitio, hosting, dominio .cl, correo corporativo, certificado de seguridad, actualizaciones y soporte 24/7 por WhatsApp. Sin cobros extra.",
   },
   {
-    question: "¿Es muy caro para lo que es?",
+    question: "¿Por qué una cuota mensual y no un pago único?",
     answer:
-      "¿Cuánto pagas hoy por hosting, dominio y correos por separado? Si sumas eso más el tiempo que le dedicas a resolver problemas, probablemente ya estás pagando más — y sin el soporte continuo.",
+      "Porque una web no se entrega y se olvida: hay que mantenerla. Con el pago único, cuando algo falla o envejece quedas solo. Con la cuota, que funcione siempre es responsabilidad nuestra.",
   },
   {
-    question: "¿Por qué mensual y no un pago único?",
+    question: "Ya tengo una web y un dominio. ¿Qué pasa con ellos?",
     answer:
-      "Porque una web no es un producto, es un servicio. Como la electricidad o el internet — pagas mientras funciona. Con el pago único te venden algo que envejece y cuando algo falla, quedas solo.",
+      "Tu dominio sigue siendo tuyo. Revisamos tu web actual contigo y definimos si conviene mejorarla o rehacerla. En ambos casos nos hacemos cargo de que esté activa, actualizada y funcionando.",
   },
   {
-    question: "¿No sé si lo necesito?",
+    question: "No tengo web, solo redes sociales. ¿Me sirve?",
     answer:
-      "¿Tu competencia tiene web y correos profesionales? Si la respuesta es sí, ya estás en desventaja. Si la respuesta es no, tienes una oportunidad.",
+      "Sí. Partimos de cero: registramos tu dominio .cl, diseñamos tu sitio y creamos tu correo corporativo. Tú solo nos cuentas de tu negocio.",
+  },
+  {
+    question: "¿Cuánto demora tener mi sitio listo?",
+    answer:
+      "Entre 2 y 3 semanas desde que conversamos y tenemos la información de tu empresa.",
+  },
+  {
+    question: "¿Qué pasa si algo falla o necesito un cambio?",
+    answer:
+      "Nos escribes por WhatsApp, cualquier día y a cualquier hora. Te respondemos en menos de 24 o 48 horas según tu plan, y los cambios los hacemos nosotros.",
+  },
+  {
+    question: "¿Hay contrato? ¿Qué pasa si quiero cancelar?",
+    answer:
+      "No hay contrato de permanencia. Avisas con 30 días de anticipación y listo: te llevas tu dominio y tu contenido.",
   },
 ];
 ---
 
-<section id="faq" class="bg-paper">
-  <div class="wrapper py-20 md:py-28">
-    <div class="max-w-2xl mb-14 md:mb-16">
-      <span class="eyebrow mb-5">Preguntas frecuentes</span>
-      <h2 class="section-title text-ink-950">Antes de escribirnos</h2>
+<section id="faq" class="bg-white lg:scroll-mt-12">
+  <div
+    class="container grid gap-12 mx-auto px-5 py-24 lg:max-w-330 lg:px-8 min-[1400px]:px-0 lg:grid-cols-3 lg:gap-16"
+  >
+    <!-- header -->
+    <div class="lg:sticky lg:top-36 lg:self-start">
+      <span class="font-mono text-neutral-500 text-xs uppercase">{tag}</span>
+      <h2 class="text-4xl mt-3 lg:text-5xl lg:mt-10">
+        {title}
+        <span class="text-neutral-500">{subtitle}</span>
+      </h2>
+      <a
+        href={contact.href}
+        target="_blank"
+        rel="noopener"
+        class="mt-8 inline-flex items-center gap-3 font-mono text-sm font-medium uppercase transition-colors duration-300 hover:text-primary"
+      >
+        {contact.text}
+        <ArrowRight class="text-primary size-5" stroke-width={1} />
+      </a>
     </div>
 
-    <div class="max-w-3xl space-y-3">
+    <!-- questions -->
+    <div class="lg:col-span-2 border-b border-neutral-200">
       {
         faqs.map((faq, index) => (
-          <details class="group card-light p-0! overflow-hidden" data-faq>
-            <summary class="flex items-center gap-5 p-6 cursor-pointer select-none list-none">
-              <span class="text-sm font-semibold text-accent shrink-0">
-                {String(index + 1).padStart(2, "0")}
+          <details class="group border-t border-neutral-200" data-faq>
+            <summary class="flex items-baseline gap-4 py-8 cursor-pointer select-none list-none [&::-webkit-details-marker]:hidden lg:gap-9">
+              <span class="font-mono text-xs text-neutral-500">
+                0{index + 1}
               </span>
-              <span class="flex-1 text-lg md:text-xl font-medium text-ink-950">
+              <h3 class="flex-1 text-xl transition-colors duration-300 group-hover:text-primary lg:text-2xl">
                 {faq.question}
-              </span>
-              <ChevronDown
-                size={20}
-                class="chevron text-ink-950/40 shrink-0 transition-transform duration-300"
+              </h3>
+              <Plus
+                class="size-6 shrink-0 self-center transition-transform duration-300 group-open:rotate-45 group-open:text-primary"
+                stroke-width={1}
               />
             </summary>
-            <div class="px-6 pb-6">
-              <div class="border-t border-black/6 pt-4 pl-9">
-                <p class="text-ink-950/65 leading-relaxed">{faq.answer}</p>
-              </div>
-            </div>
+            <p class="pb-8 pl-8 pr-10 max-w-2xl text-neutral-600 lg:pl-13">
+              {faq.answer}
+            </p>
           </details>
         ))
       }

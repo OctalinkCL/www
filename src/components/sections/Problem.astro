@@ -1,18 +1,18 @@
 ---
-const tag = "/ HUSTON TENEMOS UN PROBLEMA";
+const tag = "/ HOUSTON, TENEMOS UN PROBLEMA";
 const title =
   "Pagaste por una web. Nadie te dijo quién se hace cargo de que funcione.";
 const items = [
   {
-    title: "Quien ayuda",
+    title: "¿Quién ayuda?",
     description: "Nadie contesta cuando algo falla el fin de semana.",
   },
   {
-    title: "Quien gestiona",
+    title: "¿Quién gestiona?",
     description: "Hosting, dominio y correo con tres proveedores distintos.",
   },
   {
-    title: "Quien actualiza",
+    title: "¿Quién actualiza?",
     description: "El diseño envejece y nadie lo actualiza.",
   },
 ];
@@ -20,23 +20,23 @@ const items = [
 
 <section>
   <div
-    class="container grid gap-3 mx-auto px-4 py-24 lg:max-w-330 lg:px-0 lg:grid-cols-3"
+    class="container grid gap-3 mx-auto px-5 py-24 lg:max-w-330 lg:px-8 min-[1400px]:px-0 lg:grid-cols-3"
   >
     <!-- tag -->
-    <div class="font-mono text-neutral-400 text-xs">{tag}</div>
+    <div class="font-mono text-neutral-500 text-xs">{tag}</div>
     <!-- description -->
     <div class="lg:col-span-2 flex flex-col gap-12">
-      <h3 class="text-4xl">{title}</h3>
+      <h2 class="text-4xl lg:text-5xl">{title}</h2>
 
       <div class="grid gap-3 lg:grid-cols-3">
         <!-- item -->
         {
           items.map((item, index) => (
-            <div class="p-6 shadow-2xl shadow-neutral-200/60 bg-white rounded-xl flex flex-col min-h-50 lg:min-h-70">
+            <div class="p-6 border border-neutral-200 bg-white rounded-xl flex flex-col min-h-44 lg:min-h-56">
               <span class="font-mono text-xs text-neutral-500">
                 0{index + 1}
               </span>
-              <h4 class="mt-auto text-2xl mb-3">{item.title}</h4>
+              <h3 class="mt-auto text-2xl mb-3">{item.title}</h3>
               <p class="text-neutral-600">{item.description}</p>
             </div>
           ))

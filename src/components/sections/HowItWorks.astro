@@ -3,7 +3,7 @@ import { Search, PenTool, Rocket, MessageCircle } from "@lucide/astro";
 
 const tag = "/ sabemos hacer las cosas";
 const text =
-  "Nuestor metodo es simple y eficiente, de diagnóstico a soporte continuo.";
+  "Nuestro método es simple y eficiente, de diagnóstico a soporte continuo.";
 const steps = [
   {
     number: "01",
@@ -15,27 +15,27 @@ const steps = [
     number: "02",
     icon: PenTool,
     title: "Diseño y desarrollo",
-    description: "Tu sitio a medida, listo en semanas — con tecnología real.",
+    description: "Tu sitio web a medida, listo en 2 a 3 semanas.",
   },
   {
     number: "03",
     icon: Rocket,
     title: "Lanzamiento",
-    description: "Dominio, hosting, correo, analitica de resultados.",
+    description: "Dominio, hosting, correo y analítica de resultados.",
   },
   {
     number: "04",
     icon: MessageCircle,
     title: "Soporte continuo",
-    description: "WhatsApp, correo electrónico, siempre respondemos.",
+    description: "WhatsApp y correo 24/7, siempre respondemos.",
   },
 ];
 ---
 
-<section class="py-24">
-  <div class="container mx-auto px-4 lg:max-w-330 lg:px-0">
-    <span class="font-mono text-neutral-400 text-xs uppercase">{tag}</span>
-    <h3 class="text-4xl mt-3 max-w-5xl lg:text-5xl lg:mt-10">{text}</h3>
+<section id="como-funciona" class="pb-24 scroll-mt-36 lg:pb-32">
+  <div class="container mx-auto px-5 lg:max-w-330 lg:px-8 min-[1400px]:px-0">
+    <span class="font-mono text-neutral-500 text-xs uppercase">{tag}</span>
+    <h2 class="text-4xl mt-3 max-w-5xl lg:text-5xl lg:mt-10">{text}</h2>
     <ul
       class="mt-10 border-t border-neutral-200 pt-8 grid gap-6 lg:grid-cols-4 lg:gap-9"
     >
@@ -44,9 +44,9 @@ const steps = [
           <li class="flex lg:flex-col gap-4">
             <step.icon class="text-primary size-6 lg:size-9" stroke-width={1} />
             <div>
-              <h4 class="font-mono uppercase text-sm font-medium">
+              <h3 class="font-mono uppercase text-sm font-medium">
                 {step.title}
-              </h4>
+              </h3>
               <p class="text-sm text-neutral-600">{step.description}</p>
             </div>
           </li>

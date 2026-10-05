@@ -1,54 +1,187 @@
 ---
-const screenshotUrl =
-  "https://placehold.co/960x640/ede9e2/8a8378?text=Screenshot+RHL+Real+Estate&font=inter";
+import { ArrowLeft, ArrowRight } from "@lucide/astro";
+
+const tag = "/ proyectos";
+const title = "Empresas que ya dejaron de preocuparse por su web.";
+const subtitle = "Esto es lo que hicimos con ellas.";
+const cases = [
+  {
+    client: "RHL Real Estate",
+    industry: "Corretaje de propiedades",
+    headline: "La web trabaja sola.",
+    description:
+      "RHL Real Estate publicaba cada propiedad dos veces a mano. Automatizamos el proceso y hoy todo se publica solo. Además, reciben un informe mensual de visitas.",
+    metrics: [
+      { value: "100%", label: "Publicación automática" },
+      { value: "Mensual", label: "Informe de visitas" },
+    ],
+    domain: "rhlrealestate.cl",
+    image: {
+      src: "/assets/case_rhl.webp",
+      alt: "Sitio web de RHL Real Estate",
+    },
+  },
+  {
+    client: "Lomo Alemán",
+    industry: "Restaurante",
+    headline: "Ahora sí se usa la web.",
+    description:
+      "Lomo Alemán tenía web, pero no le sacaba provecho. Automatizamos su carta para que esté siempre al día y hoy los clientes la consultan ahí. Las visitas aumentaron más de un 30%.",
+    metrics: [
+      { value: "+30%", label: "Visitas a la web" },
+      { value: "Automática", label: "Carta siempre al día" },
+    ],
+    domain: "lomoaleman.cl",
+    image: {
+      src: "/assets/case_lomoaleman.webp",
+      alt: "Sitio web de Lomo Alemán",
+    },
+  },
+];
+const total = String(cases.length).padStart(2, "0");
 ---
 
-<section id="casos" class="bg-paper">
-  <div class="wrapper py-20 md:py-28">
-    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-      <!-- Texto -->
+<section id="casos" class="bg-white lg:scroll-mt-12">
+  <div class="container mx-auto px-5 py-24 lg:max-w-330 lg:px-8 min-[1400px]:px-0" data-cases>
+    <!-- header -->
+    <div class="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
       <div>
-        <span class="eyebrow mb-5">Caso real</span>
-        <h2 class="section-title text-ink-950 mb-6">"La web trabaja sola"</h2>
-        <p class="text-lg text-ink-950/65 leading-relaxed mb-10 max-w-lg">
-          RHL Real Estate publicaba cada propiedad dos veces a mano. Los conectamos vía
-          API — hoy todo se publica automático y reciben un informe semanal de visitas.
-        </p>
-
-        <div class="flex gap-10">
-          <div>
-            <div class="text-4xl md:text-5xl font-bold text-accent tracking-tightest">100%</div>
-            <div class="text-sm text-ink-950/50 mt-1">Publicación automática</div>
-          </div>
-          <div>
-            <div class="text-4xl md:text-5xl font-bold text-accent tracking-tightest">Semanal</div>
-            <div class="text-sm text-ink-950/50 mt-1">Informe de visitas</div>
-          </div>
-        </div>
+        <span class="font-mono text-neutral-500 text-xs uppercase">{tag}</span>
+        <h2 class="text-4xl mt-3 max-w-5xl lg:text-5xl lg:mt-10">
+          {title}
+          <span class="text-neutral-500">{subtitle}</span>
+        </h2>
       </div>
 
-      <!-- Mockup navegador -->
-      <div class="rounded-2xl overflow-hidden border border-black/7 bg-paper-card shadow-sm">
-        <div class="flex items-center gap-2 px-4 py-3 border-b border-black/6">
-          <span class="w-2.5 h-2.5 rounded-full bg-black/15"></span>
-          <span class="w-2.5 h-2.5 rounded-full bg-black/15"></span>
-          <span class="w-2.5 h-2.5 rounded-full bg-black/15"></span>
-          <span class="ml-3 text-xs text-ink-950/40 font-mono">rhlrealestate.cl</span>
-        </div>
-        <img
-          src={screenshotUrl}
-          alt="Screenshot pendiente del sitio de RHL Real Estate"
-          class="w-full h-auto"
-          loading="lazy"
-          width={960}
-          height={640}
-        />
+      <!-- controls -->
+      <div class="flex items-center gap-4 shrink-0">
+        <span class="font-mono text-xs text-neutral-500" aria-live="polite">
+          <span class="text-neutral-900" data-cases-current>01</span> / {total}
+        </span>
+        <button
+          type="button"
+          class="size-11 flex items-center justify-center rounded-full border border-neutral-200 cursor-pointer transition-colors duration-300 hover:border-primary hover:text-primary aria-disabled:opacity-30 aria-disabled:pointer-events-none"
+          aria-label="Caso anterior"
+          aria-disabled="true"
+          data-cases-prev
+        >
+          <ArrowLeft class="size-5" stroke-width={1} />
+        </button>
+        <button
+          type="button"
+          class="size-11 flex items-center justify-center rounded-full border border-neutral-200 cursor-pointer transition-colors duration-300 hover:border-primary hover:text-primary aria-disabled:opacity-30 aria-disabled:pointer-events-none"
+          aria-label="Caso siguiente"
+          aria-disabled="false"
+          data-cases-next
+        >
+          <ArrowRight class="size-5" stroke-width={1} />
+        </button>
       </div>
     </div>
 
-    <p class="text-center text-ink-950/50 mt-16 md:mt-20 max-w-xl mx-auto">
-      Si tu empresa factura, crece y no quiere perder tiempo en tecnología — esto es
-      para ti.
-    </p>
+    <!-- slides -->
+    <ul
+      class="mt-10 border-t border-neutral-200 flex overflow-x-auto snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:mt-16"
+      aria-label="Proyectos"
+      data-cases-track
+    >
+      {
+        cases.map((item, index) => (
+          <li class="w-full shrink-0 snap-center pt-10 grid gap-10 lg:grid-cols-12 lg:gap-9 lg:pt-16 lg:items-center">
+            <!-- text -->
+            <div class="flex flex-col lg:col-span-5">
+              <div class="flex gap-4 font-mono text-xs uppercase">
+                <span class="text-neutral-500">0{index + 1}</span>
+                <h3 class="font-medium">{item.client}</h3>
+                <span class="text-neutral-500">/ {item.industry}</span>
+              </div>
+              <p class="text-3xl mt-8 lg:text-4xl">{item.headline}</p>
+              <p class="text-neutral-600 mt-4 max-w-lg">{item.description}</p>
+
+              <dl class="mt-10 grid grid-cols-2">
+                {
+                  item.metrics.map((metric) => (
+                    <div class="min-w-0 border-l border-neutral-200 px-4 flex flex-col-reverse justify-end gap-2 sm:px-6">
+                      <dt class="font-mono text-xs uppercase text-neutral-500">
+                        {metric.label}
+                      </dt>
+                      <dd class="text-2xl text-primary sm:text-3xl lg:text-4xl">
+                        {metric.value}
+                      </dd>
+                    </div>
+                  ))
+                }
+              </dl>
+            </div>
+
+            <!-- browser -->
+            <div class="rounded-xl overflow-hidden border border-neutral-200 bg-white lg:col-span-7">
+              <div class="flex items-center gap-2 px-4 py-3 border-b border-neutral-200">
+                <span class="size-2.5 rounded-full bg-neutral-200" />
+                <span class="size-2.5 rounded-full bg-neutral-200" />
+                <span class="size-2.5 rounded-full bg-neutral-200" />
+                <a
+                  href={`https://${item.domain}`}
+                  target="_blank"
+                  rel="noopener"
+                  class="ml-3 font-mono text-xs text-neutral-500 transition-colors duration-300 hover:text-neutral-900"
+                >
+                  {item.domain}
+                </a>
+              </div>
+              <img
+                src={item.image.src}
+                alt={item.image.alt}
+                class="w-full aspect-3/2 object-cover"
+                loading="lazy"
+                width={1440}
+                height={960}
+              />
+            </div>
+          </li>
+        ))
+      }
+    </ul>
   </div>
 </section>
+
+<script>
+  // Slider de casos: scroll-snap nativo + flechas y contador
+  document.querySelectorAll("[data-cases]").forEach((root) => {
+    const track = root.querySelector("[data-cases-track]") as HTMLElement;
+    const prev = root.querySelector("[data-cases-prev]") as HTMLButtonElement;
+    const next = root.querySelector("[data-cases-next]") as HTMLButtonElement;
+    const current = root.querySelector("[data-cases-current]") as HTMLElement;
+    const last = track.children.length - 1;
+    let target = 0;
+
+    const getIndex = () => Math.round(track.scrollLeft / track.clientWidth);
+    const goTo = (index: number) => {
+      target = Math.max(0, Math.min(last, index));
+      track.scrollTo({ left: target * track.clientWidth });
+    };
+
+    // aria-disabled en vez de disabled: el botón no pierde el foco del teclado
+    const update = () => {
+      const index = getIndex();
+      current.textContent = String(index + 1).padStart(2, "0");
+      prev.setAttribute("aria-disabled", String(index <= 0));
+      next.setAttribute("aria-disabled", String(index >= last));
+    };
+
+    prev.addEventListener("click", () => goTo(target - 1));
+    next.addEventListener("click", () => goTo(target + 1));
+    // al terminar un deslizamiento manual, sincroniza el destino
+    let timer: number;
+    track.addEventListener(
+      "scroll",
+      () => {
+        update();
+        clearTimeout(timer);
+        timer = window.setTimeout(() => (target = getIndex()), 150);
+      },
+      { passive: true },
+    );
+    update();
+  });
+</script>

@@ -1,16 +1,20 @@
 ---
-// import { MessageCircle } from "@lucide/astro";
 import LogoIcon from "../LogoIcon.astro";
 
 const items = [
-  { href: "#como-funciona", label: "Como" },
-  { href: "#planes", label: "Planes" },
+  { href: "#", label: "Inicio" },
+  { href: "#como-funciona", label: "Cómo" },
   { href: "#casos", label: "Casos" },
+  { href: "#planes", label: "Planes" },
   { href: "#faq", label: "FAQ" },
 ];
 
-const ctaLink =
-  "https://wa.me/56932393772?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20de%20Octalink.";
+const cta = {
+  text: "Iniciar proyecto",
+  href:
+    "https://wa.me/56932393772?text=" +
+    encodeURIComponent("Hola, quiero iniciar un proyecto con Octalink."),
+};
 ---
 
 <header
@@ -19,7 +23,7 @@ const ctaLink =
 >
   <!-- header | group-[.hs]:py-3.5 -->
   <div
-    class="container max-w-330 mx-auto px-5 py-6 transition-all duration-500 ease-in-out | lg:px-0 lg:py-12 lg:group-[.hs]:py-9 flex items-center justify-between"
+    class="container max-w-330 mx-auto px-5 py-6 transition-all duration-500 ease-in-out | lg:px-8 min-[1400px]:px-0 lg:py-12 lg:group-[.hs]:py-9 flex items-center justify-between"
   >
     <!-- logo | group-[.hs]:text-neutral-800 -->
     <a href="/" class="flex items-center gap-2 text-white w-45">
@@ -35,14 +39,13 @@ const ctaLink =
 
     <!-- navigation -->
     <nav
-      class="hidden text-neutral-500 font-mono text-xs uppercase gap-10 lg:flex"
+      class="hidden text-neutral-400 font-mono text-xs uppercase gap-10 lg:flex"
     >
       {
         items.map((item) => (
           <a
             href={item.href}
             class="px-2.5 py-1.5 hover:bg-white/10 hover:text-white rounded-sm transition-colors"
-            aria-label={item.label}
           >
             {item.label}
           </a>
@@ -53,12 +56,12 @@ const ctaLink =
     <!-- cta -->
     <div class="hidden lg:block">
       <a
-        href={ctaLink}
+        href={cta.href}
         class="lg:w-45 btn btn-primary"
-        aria-label="Start a project"
         target="_blank"
+        rel="noopener"
       >
-        <span>Start a project</span>
+        <span>{cta.text}</span>
       </a>
     </div>
   </div>
@@ -66,7 +69,12 @@ const ctaLink =
 
 <script>
   const header = document.getElementById("site-header");
-  const onScroll = () => header?.classList.toggle("hs", window.scrollY > 450);
+  const hero = document.getElementById("section-hero");
+  // en pantallas bajas el hero termina antes de los 450px
+  const limit = () =>
+    Math.min(450, (hero?.offsetHeight ?? 450) - (header?.offsetHeight ?? 0));
+  const onScroll = () =>
+    header?.classList.toggle("hs", window.scrollY > limit());
 
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });

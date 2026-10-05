@@ -1,116 +1,189 @@
 ---
-import { Check, Calendar } from "@lucide/astro";
+import { ArrowRight } from "@lucide/astro";
 
+const whatsapp = "https://wa.me/56932393772?text=";
+const tag = "/ planes y precios";
+const title = "Simple y transparente.";
+const subtitle = "Sin sorpresas.";
+const description =
+  "Dos planes de sitio web para pymes. Web, hosting, dominio, correo y soporte en una sola cuota mensual — sin cobros extra.";
+const note = "Precios en pesos chilenos, cuota mensual fija";
+const featuredLabel = "Recomendado";
 const plans = [
   {
     name: "Presencia",
-    price: "120",
-    setup: "Setup mes 1: $200 USD",
+    price: "$118.000",
+    period: "al mes",
+    setup: "Implementación: $197.000, pago único",
+    description:
+      "Para empresas que necesitan estar en internet de forma profesional, sin complicarse.",
     featured: false,
     features: [
-      "Hasta 4 páginas web",
-      "Dominio .cl + Hosting + SSL",
+      "Sitio web de hasta 4 páginas",
+      "Dominio .cl, hosting y certificado de seguridad",
       "1 correo corporativo",
-      "Soporte WhatsApp — respuesta en 48h",
+      "Soporte 24/7 por WhatsApp — respuesta en menos de 48 h",
     ],
+    cta: "Elegir Presencia",
+    message: "Hola, quiero elegir el Plan Presencia.",
   },
   {
     name: "Negocio",
-    price: "180",
-    setup: "Setup mes 1: $350 USD",
+    price: "$177.000",
+    period: "al mes",
+    setup: "Implementación: $344.000, pago único",
+    description:
+      "Para empresas que muestran sus productos o servicios en la web y necesitan más páginas, correos y respuesta más rápida.",
     featured: true,
     features: [
-      "Hasta 8 páginas web",
+      "Todo lo del plan Presencia",
+      "Sitio web de hasta 8 páginas",
       "Hasta 3 correos corporativos",
       "Galería, catálogo y estadísticas",
-      "Soporte WhatsApp — respuesta en 24h",
+      "Soporte 24/7 por WhatsApp — respuesta en menos de 24 h",
     ],
+    cta: "Elegir Negocio",
+    message: "Hola, quiero elegir el Plan Negocio.",
   },
 ];
+const custom = {
+  name: "A medida",
+  description:
+    "¿Necesitas más páginas, integraciones o algo distinto? Armamos un plan a la medida de tu empresa.",
+  cta: "Cotizar a medida",
+  message: "Hola, quiero cotizar un plan a medida.",
+};
+const call = {
+  title: "¿No sabes cuál elegir?",
+  description:
+    "Agenda una llamada de 15 minutos. Nos presentamos, entendemos tu negocio y te decimos si podemos ayudarte.",
+  cta: "Agendar llamada",
+  message: "Hola, quiero agendar una llamada de 15 minutos.",
+};
+const terms =
+  "Sin contrato de permanencia — 30 días de aviso para cancelar. Al cancelar, te llevas tu dominio y contenido.";
 ---
 
-<section id="planes" class="bg-paper-dim">
-  <div class="wrapper py-20 md:py-28">
-    <div class="max-w-2xl mb-14 md:mb-16">
-      <span class="eyebrow mb-5">Planes y precios</span>
-      <h2 class="section-title text-ink-950">Simple y transparente. Sin sorpresas.</h2>
+<section id="planes" class="bg-neutral-100 lg:scroll-mt-12">
+  <div
+    class="container mx-auto px-5 py-24 lg:max-w-330 lg:px-8 min-[1400px]:px-0"
+  >
+    <!-- header -->
+    <div class="grid gap-8 lg:grid-cols-12 lg:gap-9 lg:items-end">
+      <div class="lg:col-span-7">
+        <span class="font-mono text-neutral-600 text-xs uppercase">{tag}</span>
+        <h2 class="text-4xl mt-3 lg:text-5xl lg:mt-10">
+          {title}
+          <span class="block text-neutral-500">{subtitle}</span>
+        </h2>
+      </div>
+      <div class="lg:col-start-9 lg:col-span-4">
+        <p class="text-neutral-600">{description}</p>
+        <span class="block mt-4 font-mono text-neutral-600 text-xs uppercase">
+          {note}
+        </span>
+      </div>
     </div>
 
-    <div class="grid lg:grid-cols-[minmax(0,280px)_1fr] gap-8 lg:gap-10">
-      <!-- CTA lateral -->
-      <div class="lg:pt-2">
-        <h3 class="text-xl font-semibold text-ink-950 mb-3">
-          Agenda una llamada de 15 minutos
-        </h3>
-        <p class="text-ink-950/60 leading-relaxed mb-6">
-          Nos presentamos, entendemos tu negocio y te decimos si podemos ayudarte.
-        </p>
-        <a
-          href="https://wa.me/56932393772?text=Hola%2C%20quiero%20agendar%20una%20llamada%20de%2015%20minutos."
-          target="_blank"
-          rel="noopener"
-          class="btn-outline"
-        >
-          <Calendar size={16} />
-          <span>Agendar llamada</span>
-        </a>
-      </div>
-
-      <!-- Tarjetas de planes -->
-      <div class="grid sm:grid-cols-2 gap-6">
-        {
-          plans.map((plan) => (
-            <div
-              class={
-                plan.featured
-                  ? "relative rounded-2xl bg-paper-card border-2 border-accent p-6 md:p-8 shadow-[0_20px_40px_-20px_rgba(255,94,35,0.35)]"
-                  : "card-light"
-              }
-            >
+    <!-- plans -->
+    <ul class="mt-10 grid gap-3 lg:grid-cols-2 lg:mt-16">
+      {
+        plans.map((plan) => (
+          <li
+            class:list={[
+              "p-6 bg-white rounded-xl border flex flex-col lg:p-10",
+              plan.featured ? "border-primary" : "border-neutral-200",
+            ]}
+          >
+            <div class="flex items-center justify-between gap-4 min-h-7">
+              <h3 class="flex items-center gap-2 font-mono text-xs uppercase font-medium">
+                <span class="size-1.5 rounded-full bg-primary" />
+                {plan.name}
+              </h3>
               {plan.featured && (
-                <span class="absolute -top-3 left-6 bg-accent text-white text-xs font-semibold uppercase tracking-wide px-3 py-1 rounded-full">
-                  Recomendado
+                <span class="font-mono text-xs uppercase bg-primary text-neutral-950 rounded-full px-3 py-1">
+                  {featuredLabel}
                 </span>
               )}
-
-              <h3 class="text-sm font-semibold uppercase tracking-wide text-ink-950/50 mb-4">
-                Plan {plan.name}
-              </h3>
-
-              <div class="mb-1">
-                <span class={`text-4xl font-bold tracking-tightest ${plan.featured ? "text-accent" : "text-ink-950"}`}>
-                  ${plan.price}
-                </span>
-                <span class="text-ink-950/50 text-sm"> USD/mes</span>
-              </div>
-              <p class="text-xs text-ink-950/40 mb-6">{plan.setup}</p>
-
-              <ul class="space-y-3 mb-8">
-                {plan.features.map((feature) => (
-                  <li class="flex items-start gap-3 text-sm text-ink-950/75">
-                    <Check size={16} class="text-accent shrink-0 mt-0.5" />
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <a
-                href={`https://wa.me/56932393772?text=Hola%2C%20quiero%20elegir%20el%20Plan%20${plan.name}.`}
-                target="_blank"
-                rel="noopener"
-                class={plan.featured ? "btn-primary w-full" : "btn-outline w-full"}
-              >
-                Elegir {plan.name}
-              </a>
             </div>
-          ))
-        }
-      </div>
+
+            <div class="mt-10 text-5xl lg:text-6xl">{plan.price}</div>
+            <div class="mt-3 flex flex-wrap gap-x-4 gap-y-1 font-mono text-xs uppercase text-neutral-500">
+              <span>{plan.period}</span>
+              <span>/ {plan.setup}</span>
+            </div>
+
+            <p class="mt-8 text-neutral-600 max-w-md">{plan.description}</p>
+
+            <ul class="mt-8 mb-10 border-t border-neutral-200 pt-8 flex flex-col gap-4">
+              {plan.features.map((feature) => (
+                <li class="flex items-baseline gap-4">
+                  <span class="size-1 shrink-0 rounded-full bg-primary -translate-y-1" />
+                  {feature}
+                </li>
+              ))}
+            </ul>
+
+            <a
+              href={whatsapp + encodeURIComponent(plan.message)}
+              target="_blank"
+              rel="noopener"
+              class:list={[
+                "btn mt-auto py-3",
+                plan.featured
+                  ? "bg-primary text-neutral-950 hover:bg-neutral-900 hover:text-white"
+                  : "bg-neutral-900 text-white hover:bg-primary hover:text-neutral-950",
+              ]}
+            >
+              {plan.cta}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <!-- custom -->
+    <div
+      class="mt-3 px-6 py-5 bg-white rounded-xl border border-neutral-200 flex flex-col gap-4 lg:px-10 lg:flex-row lg:items-center lg:gap-9"
+    >
+      <h3
+        class="flex items-center gap-2 shrink-0 font-mono text-xs uppercase font-medium"
+      >
+        <span class="size-1.5 rounded-full bg-primary"></span>
+        {custom.name}
+      </h3>
+      <p class="text-neutral-600 lg:flex-1">{custom.description}</p>
+      <a
+        href={whatsapp + encodeURIComponent(custom.message)}
+        target="_blank"
+        rel="noopener"
+        class="shrink-0 inline-flex items-center gap-3 font-mono text-sm font-medium uppercase transition-colors duration-300 hover:text-primary"
+      >
+        {custom.cta}
+        <ArrowRight class="text-primary size-5" stroke-width={1} />
+      </a>
     </div>
 
-    <p class="text-center text-sm text-ink-950/45 mt-12 max-w-xl mx-auto">
-      Sin contrato de permanencia — 30 días de aviso para cancelar. Al cancelar, te
-      llevas tu dominio y contenido.
-    </p>
+    <!-- call -->
+    <div
+      class="mt-10 border-t border-neutral-200 pt-8 grid gap-8 lg:grid-cols-12 lg:gap-9 lg:mt-16"
+    >
+      <div class="lg:col-span-5">
+        <h3 class="text-2xl">{call.title}</h3>
+        <p class="mt-2 text-neutral-600">{call.description}</p>
+        <a
+          href={whatsapp + encodeURIComponent(call.message)}
+          target="_blank"
+          rel="noopener"
+          class="mt-6 inline-flex items-center gap-3 font-mono text-sm font-medium uppercase transition-colors duration-300 hover:text-primary"
+        >
+          {call.cta}
+          <ArrowRight class="text-primary size-5" stroke-width={1} />
+        </a>
+      </div>
+      <p class="text-sm text-neutral-600 lg:col-start-9 lg:col-span-4">
+        {terms}
+      </p>
+    </div>
   </div>
 </section>
