@@ -44,7 +44,7 @@ const total = String(cases.length).padStart(2, "0");
 <section id="casos" class="bg-white lg:scroll-mt-12">
   <div class="container mx-auto px-5 py-24 lg:max-w-330 lg:px-8 min-[1400px]:px-0" data-cases>
     <!-- header -->
-    <div class="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+    <div class="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between" data-reveal>
       <div>
         <span class="font-mono text-neutral-500 text-xs uppercase">{tag}</span>
         <h2 class="text-4xl mt-3 max-w-5xl lg:text-5xl lg:mt-10">
@@ -82,6 +82,7 @@ const total = String(cases.length).padStart(2, "0");
     <!-- slides -->
     <ul
       class="mt-10 border-t border-neutral-200 flex overflow-x-auto snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:mt-16"
+      data-reveal
       aria-label="Proyectos"
       data-cases-track
     >

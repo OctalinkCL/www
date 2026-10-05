@@ -34,14 +34,15 @@ const items = [
 
 <section>
   <div class="container mx-auto px-5 py-24 lg:max-w-330 lg:px-8 min-[1400px]:px-0">
-    <span class="font-mono text-neutral-500 text-xs uppercase">{tag}</span>
-    <h2 class="text-4xl mt-3 max-w-5xl lg:text-5xl lg:mt-10">
+    <span class="font-mono text-neutral-500 text-xs uppercase" data-reveal>{tag}</span>
+    <h2 class="text-4xl mt-3 max-w-5xl lg:text-5xl lg:mt-10" data-reveal>
       {title}
       <span class="text-neutral-500">{subtitle}</span>
     </h2>
 
     <!-- labels -->
     <div
+      data-reveal
       class="hidden mt-16 pb-4 font-mono text-xs uppercase lg:grid lg:grid-cols-12 lg:gap-9"
     >
       <span class="col-start-4 col-span-4 text-neutral-500">
@@ -56,7 +57,7 @@ const items = [
     <ul class="mt-10 lg:mt-0">
       {
         items.map((item, index) => (
-          <li class="border-t border-neutral-200 py-8 grid gap-4 lg:grid-cols-12 lg:gap-9 lg:py-10 lg:items-baseline">
+          <li class="border-t border-neutral-200 py-8 grid gap-4 lg:grid-cols-12 lg:gap-9 lg:py-10 lg:items-baseline" data-reveal>
             <!-- topic -->
             <div class="flex gap-4 font-mono text-xs uppercase lg:col-span-3">
               <span class="text-neutral-500">0{index + 1}</span>
