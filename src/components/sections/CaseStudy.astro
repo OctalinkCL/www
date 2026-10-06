@@ -1,7 +1,7 @@
 ---
 import { ArrowLeft, ArrowRight } from "@lucide/astro";
 
-const tag = "/ proyectos";
+const tag = "/ CASOS REALES";
 const title = "Empresas que ya dejaron de preocuparse por su web.";
 const subtitle = "Esto es lo que hicimos con ellas.";
 const cases = [
@@ -38,6 +38,7 @@ const cases = [
     },
   },
 ];
+const projectLabel = "Proyecto a medida";
 const total = String(cases.length).padStart(2, "0");
 ---
 
@@ -91,10 +92,11 @@ const total = String(cases.length).padStart(2, "0");
           <li class="w-full shrink-0 snap-center pt-10 grid gap-10 lg:grid-cols-12 lg:gap-9 lg:pt-16 lg:items-center">
             <!-- text -->
             <div class="flex flex-col lg:col-span-5">
-              <div class="flex gap-4 font-mono text-xs uppercase">
+              <div class="flex flex-wrap gap-x-4 gap-y-1 font-mono text-xs uppercase">
                 <span class="text-neutral-500">0{index + 1}</span>
                 <h3 class="font-medium">{item.client}</h3>
                 <span class="text-neutral-500">/ {item.industry}</span>
+                <span class="text-neutral-500">/ {projectLabel}</span>
               </div>
               <p class="text-3xl mt-8 lg:text-4xl">{item.headline}</p>
               <p class="text-neutral-600 mt-4 max-w-lg">{item.description}</p>

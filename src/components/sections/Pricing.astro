@@ -12,15 +12,14 @@ const featuredLabel = "Recomendado";
 const plans = [
   {
     name: "Presencia",
-    price: "$118.000",
+    price: "$129.000",
     period: "al mes",
-    setup: "Implementación: $197.000, pago único",
     description:
       "Para empresas que necesitan estar en internet de forma profesional, sin complicarse.",
     featured: false,
     features: [
-      "Sitio web de hasta 4 páginas",
-      "Dominio .cl, hosting y certificado de seguridad",
+      "Hasta 4 páginas web",
+      "Dominio .cl + Hosting + SSL",
       "1 correo corporativo",
       "Soporte 24/7 por WhatsApp — respuesta en menos de 48 h",
     ],
@@ -29,15 +28,14 @@ const plans = [
   },
   {
     name: "Negocio",
-    price: "$177.000",
+    price: "$199.000",
     period: "al mes",
-    setup: "Implementación: $344.000, pago único",
     description:
       "Para empresas que muestran sus productos o servicios en la web y necesitan más páginas, correos y respuesta más rápida.",
     featured: true,
     features: [
       "Todo lo del plan Presencia",
-      "Sitio web de hasta 8 páginas",
+      "Hasta 8 páginas web",
       "Hasta 3 correos corporativos",
       "Galería, catálogo y estadísticas",
       "Soporte 24/7 por WhatsApp — respuesta en menos de 24 h",
@@ -60,8 +58,10 @@ const call = {
   cta: "Agendar llamada",
   message: "Hola, quiero agendar una llamada de 15 minutos.",
 };
-const terms =
-  "Sin contrato de permanencia — 30 días de aviso para cancelar. Al cancelar, te llevas tu dominio y contenido.";
+const terms = [
+  "Sin contrato de permanencia — 30 días de aviso para cancelar. Al cancelar, te llevas tu dominio y contenido.",
+  "Los planes Presencia y Negocio no tienen costo de implementación. Los proyectos a medida (integraciones, sistemas o funcionalidades avanzadas) se cotizan aparte según el alcance.",
+];
 ---
 
 <section id="planes" class="bg-neutral-100 lg:scroll-mt-12">
@@ -109,9 +109,8 @@ const terms =
             </div>
 
             <div class="mt-10 text-5xl lg:text-6xl">{plan.price}</div>
-            <div class="mt-3 flex flex-wrap gap-x-4 gap-y-1 font-mono text-xs uppercase text-neutral-500">
-              <span>{plan.period}</span>
-              <span>/ {plan.setup}</span>
+            <div class="mt-3 font-mono text-xs uppercase text-neutral-500">
+              {plan.period}
             </div>
 
             <p class="mt-8 text-neutral-600 max-w-md">{plan.description}</p>
@@ -184,9 +183,9 @@ const terms =
           <ArrowRight class="text-primary size-5" stroke-width={1} />
         </a>
       </div>
-      <p class="text-sm text-neutral-600 lg:col-start-9 lg:col-span-4">
-        {terms}
-      </p>
+      <div class="flex flex-col gap-3 text-sm text-neutral-600 lg:col-start-9 lg:col-span-4">
+        {terms.map((term) => <p>{term}</p>)}
+      </div>
     </div>
   </div>
 </section>
