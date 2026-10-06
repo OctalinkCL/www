@@ -4,6 +4,7 @@ import { ArrowRight } from "@lucide/astro";
 const tag = "/ POR QUÉ OCTALINK";
 const title = "Una agencia entrega un sitio.";
 const subtitle = "Nosotros nos quedamos a cargo de que funcione.";
+const cta = "Ver planes y precios";
 const labels = {
   agency: "Agencia tradicional",
   us: "Octalink",
@@ -11,8 +12,8 @@ const labels = {
 const items = [
   {
     topic: "Precio",
-    agency: "Cobro único de $400.000 a $1.500.000, y cada cambio aparte",
-    us: "Implementación desde $197.000 + cuota mensual fija",
+    agency: "Un pago grande por adelantado, y cada cambio aparte",
+    us: "Cuota mensual fija desde $129.000, sin pago inicial",
   },
   {
     topic: "Relación",
@@ -27,7 +28,7 @@ const items = [
   {
     topic: "Soporte",
     agency: "Soporte por ticket o sin respuesta",
-    us: "WhatsApp directo 24/7, respuesta garantizada",
+    us: "WhatsApp directo 24/7, con respuesta en menos de 24 o 48 h según tu plan",
   },
 ];
 ---
@@ -89,5 +90,13 @@ const items = [
         ))
       }
     </ul>
+
+    <a
+      href="#planes"
+      class="mt-10 inline-flex items-center gap-3 font-mono text-sm font-medium uppercase transition-colors duration-300 hover:text-primary"
+    >
+      {cta}
+      <ArrowRight class="text-primary size-5" stroke-width={1} />
+    </a>
   </div>
 </section>
