@@ -16,14 +16,14 @@
 Tu equipo de tecnología, sin contratar un equipo de tecnología.
 
 **Subtítulo:**
-Web, correo, hosting y soporte — una cuota mensual fija. Nosotros respondemos siempre, tú te enfocas en vender.
+Web, correo, hosting y soporte — un valor mensual fijo. Nosotros respondemos siempre, tú te enfocas en vender.
 
 **Botones:**
 - Hablar por WhatsApp →
 - Ver planes
 
 **Trust signals:**
-✓ Lanzamiento en 2-3 semanas · ✓ Cuota fija sin sorpresas · ✓ Sin contrato de permanencia · ✓ Siempre respondemos
+✓ Lanzamiento en 2-3 semanas · ✓ Valor mensual fijo, sin sorpresas · ✓ Sin contrato de permanencia · ✓ Siempre respondemos
 
 ---
 
@@ -71,10 +71,10 @@ Un proceso simple, sin fricción — de diagnóstico a soporte continuo.
 Todo lo que necesitas. Nada de lo que no.
 
 **6 beneficios:**
-- Todo incluido — Web, correo, hosting y SSL en una sola cuota.
+- Todo incluido — Web, correo, hosting y SSL en una sola suscripción.
 - Respuesta rápida — WhatsApp directo, respondemos siempre.
 - Actualización continua — Tu web se actualiza cuando lo necesitas.
-- Cuota fija — Sin sorpresas, sin cobros extras inesperados.
+- Valor mensual fijo — Sin sorpresas, sin cobros extras inesperados.
 - Sin ataduras — Sin contrato largo. 30 días de aviso y listo.
 - Estamos siempre — A diferencia de una agencia tradicional, no desaparecemos.
 
@@ -92,9 +92,9 @@ Agencia tradicional vs. Octalink
 × Soporte por ticket o sin respuesta
 
 **Nosotros:**
-✓ Setup accesible + cuota mensual fija
+✓ Setup accesible + valor mensual fijo
 ✓ Estamos siempre — es nuestra responsabilidad
-✓ Todo incluido en una sola cuota
+✓ Todo incluido en una sola suscripción
 ✓ WhatsApp directo, respuesta garantizada
 
 ---
@@ -169,7 +169,7 @@ Perfecto — ¿quién se encarga de que esté siempre activa, actualizada y func
 **¿Es muy caro para lo que es?**
 ¿Cuánto pagas hoy por hosting, dominio y correos por separado? Si sumas eso más el tiempo que le dedicas a resolver problemas, probablemente ya estás pagando más — y sin el soporte continuo.
 
-**¿Por qué mensual y no un pago único?**
+**¿Por qué una suscripción y no un pago único?**
 Porque una web no es un producto, es un servicio. Como la electricidad o el internet — pagas mientras funciona. Con el pago único te venden algo que envejece y cuando algo falla, quedas solo.
 
 **¿No sé si lo necesito?**
