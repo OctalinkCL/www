@@ -11,6 +11,7 @@ const items = [
 
 const cta = {
   text: "Iniciar proyecto",
+  mobileText: "Hablemos",
   href:
     "https://wa.me/56932393772?text=" +
     encodeURIComponent("Hola, quiero iniciar un proyecto con Octalink."),
@@ -54,14 +55,16 @@ const cta = {
     </nav>
 
     <!-- cta -->
-    <div class="hidden lg:block">
+    <div>
       <a
         href={cta.href}
-        class="lg:w-45 btn btn-primary"
+        class="btn btn-primary px-3.5 text-xs | lg:w-45 lg:px-5 lg:text-sm"
         target="_blank"
         rel="noopener"
       >
-        <span>{cta.text}</span>
+        <!-- en móvil no hay menú: el botón queda como único acceso directo -->
+        <span class="lg:hidden">{cta.mobileText}</span>
+        <span class="hidden lg:inline">{cta.text}</span>
       </a>
     </div>
   </div>
